@@ -1,16 +1,14 @@
 {
-    "framework": "nextjs",
-    "buildCommand": "npm run build",
-    "outputDirectory": ".next",
-    "installCommand": "npm install",
-    "regions": [
-        "iad1"
-    ],
-    "crons": [],
-    "git": {
-        "deploymentEnabled": {
-            "main": true,
-            "staging": true
-        }
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "regions": ["iad1"],
+  "crons": [],
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "staging": true
     }
+  }
 }
