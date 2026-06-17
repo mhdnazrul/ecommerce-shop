@@ -18,7 +18,7 @@ export async function apiHandler(
       if (!session?.user) {
         return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 })
       }
-      if (options?.requireAdmin && !session.user.roles?.includes("Admin")) {
+      if (options?.requireAdmin && !session.user.roles?.includes("admin")) {
         return NextResponse.json({ success: false, message: "Forbidden" }, { status: 403 })
       }
       return await handler(session)

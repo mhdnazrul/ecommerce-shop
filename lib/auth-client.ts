@@ -11,7 +11,7 @@ export function useAuth() {
   const isLoading = status === "loading"
   const isAuthenticated = status === "authenticated"
   const user = session?.user ?? null
-  const isAdmin = user?.roles?.includes("Admin") ?? false
+  const isAdmin = user?.roles?.includes("admin") ?? false
 
   const login = async (email: string, password: string) => {
     const result = await signIn("credentials", {

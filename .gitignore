@@ -22,7 +22,7 @@ prisma/migrations/
 .env.test.local
 .env.production.local
 .env*.local
-
+make-admin.ts
 # Allow committing templates
 !.env.example
 !.env.production.example
