@@ -1,21 +1,13 @@
-'use client'
-
-import { useAuth } from '@/lib/auth-client'
+import { auth } from '@/auth'
+import { redirect } from 'next/navigation'
 import { AdminSidebar } from '@/components/AdminSidebar'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
-import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const { user, isAdmin, isLoading } = useAuth()
-  const router = useRouter()
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const session = await auth()
 
-  useEffect(() => {
-    if (!isLoading && (!user || !isAdmin)) router.push('/')
-  }, [user, isAdmin, isLoading, router])
-
-  if (isLoading) return <LoadingSpinner fullScreen />
-  if (!user || !isAdmin) return null
+  if (!session?.user || !session.user.roles?.includes('admin')) {
+    redirect('/')
+  }
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)]">

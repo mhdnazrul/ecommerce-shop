@@ -162,6 +162,58 @@ async function main() {
     },
   })
 
+  // ── Dummy Category ──────────────────────────────────────────
+  const electronicsCategory = await prisma.category.upsert({
+    where: { slug: "electronics" },
+    update: {},
+    create: {
+      name: "Electronics",
+      slug: "electronics",
+      description: "Latest gadgets and devices",
+      displayOrder: 1,
+    }
+  })
+
+  // ── Dummy Products ──────────────────────────────────────────
+  const products = [
+    {
+      name: "Wireless Noise-Cancelling Headphones",
+      slug: "wireless-headphones-pro",
+      description: "Premium sound with active noise cancellation.",
+      shortDescription: "Premium noise-cancelling headphones.",
+      price: 299.99,
+      compareAtPrice: 349.99,
+      costPrice: 150.00,
+      stockQuantity: 45,
+      sku: "ELEC-HP-001",
+      categoryId: electronicsCategory.id,
+      isPublished: true,
+    },
+    {
+      name: "Ultra HD 4K Monitor",
+      slug: "ultra-hd-4k-monitor",
+      description: "27-inch 4K UHD IPS monitor with HDR10.",
+      shortDescription: "27-inch 4K UHD Monitor.",
+      price: 399.50,
+      compareAtPrice: 450.00,
+      costPrice: 280.00,
+      stockQuantity: 15,
+      sku: "ELEC-MON-002",
+      categoryId: electronicsCategory.id,
+      isPublished: true,
+    }
+  ];
+
+  for (const p of products) {
+    await prisma.product.upsert({
+      where: { slug: p.slug },
+      update: {},
+      create: p
+    })
+  }
+
+  console.log("✅ Dummy products seeded!")
+
   console.log("✅ Seed completed:")
   console.log(`   Admin: admin@shopfinity.com / Admin123!`)
   console.log(`   Test:  test@shopfinity.com / Password123!`)
