@@ -162,57 +162,76 @@ async function main() {
     },
   })
 
-  // ── Dummy Category ──────────────────────────────────────────
-  const electronicsCategory = await prisma.category.upsert({
-    where: { slug: "electronics" },
-    update: {},
-    create: {
-      name: "Electronics",
-      slug: "electronics",
-      description: "Latest gadgets and devices",
-      displayOrder: 1,
-    }
-  })
-
-  // ── Dummy Products ──────────────────────────────────────────
-  const products = [
-    {
-      name: "Wireless Noise-Cancelling Headphones",
-      slug: "wireless-headphones-pro",
-      description: "Premium sound with active noise cancellation.",
-      shortDescription: "Premium noise-cancelling headphones.",
-      price: 299.99,
-      compareAtPrice: 349.99,
-      costPrice: 150.00,
-      stockQuantity: 45,
-      sku: "ELEC-HP-001",
-      categoryId: electronicsCategory.id,
-      isPublished: true,
-    },
-    {
-      name: "Ultra HD 4K Monitor",
-      slug: "ultra-hd-4k-monitor",
-      description: "27-inch 4K UHD IPS monitor with HDR10.",
-      shortDescription: "27-inch 4K UHD Monitor.",
-      price: 399.50,
-      compareAtPrice: 450.00,
-      costPrice: 280.00,
-      stockQuantity: 15,
-      sku: "ELEC-MON-002",
-      categoryId: electronicsCategory.id,
-      isPublished: true,
-    }
+  // ── 10 Categories and 500 Products ──────────────────────────
+  const categoriesData = [
+    { name: "Laptops", desc: "High-performance laptops for work and gaming." },
+    { name: "Smartphones", desc: "Latest smartphones with cutting-edge features." },
+    { name: "Air Conditioners", desc: "Efficient cooling solutions for your home." },
+    { name: "Televisions", desc: "Stunning 4K and 8K smart TVs." },
+    { name: "Smartwatches", desc: "Wearable tech to keep you connected." },
+    { name: "Tablets", desc: "Portable powerhouses for creativity and entertainment." },
+    { name: "Headphones", desc: "Premium audio for audiophiles." },
+    { name: "Cameras", desc: "Capture your best moments in high resolution." },
+    { name: "Refrigerators", desc: "Modern appliances for your kitchen." },
+    { name: "Gaming Consoles", desc: "Next-gen consoles for immersive gaming." }
   ];
 
-  for (const p of products) {
-    await prisma.product.upsert({
-      where: { slug: p.slug },
-      update: {},
-      create: p
-    })
+  let totalSeeded = 0;
+  for (let i = 0; i < categoriesData.length; i++) {
+    const catData = categoriesData[i];
+    const catSlug = catData.name.toLowerCase().replace(/\s+/g, '-');
+    
+    const category = await prisma.category.upsert({
+      where: { slug: catSlug },
+      update: { description: catData.desc, displayOrder: i + 1 },
+      create: {
+        name: catData.name,
+        slug: catSlug,
+        description: catData.desc,
+        displayOrder: i + 1,
+      }
+    });
+
+    console.log(`Seeding 50 products for category: ${category.name}...`);
+    
+    const productsChunk = [];
+    for (let j = 1; j <= 50; j++) {
+      const pName = `${category.name} Model ${j} Pro`;
+      const pSlug = `${catSlug}-model-${j}-pro`;
+      const price = 50 + (j * 15);
+      
+      productsChunk.push({
+        name: pName,
+        slug: pSlug,
+        description: `Experience the new standard with ${pName}. Featuring cutting-edge technology and sleek design.`,
+        shortDescription: `Top-tier ${category.name.toLowerCase()}.`,
+        price: price,
+        compareAtPrice: price * 1.2,
+        costPrice: price * 0.7,
+        stockQuantity: 20 + j,
+        sku: `SKU-${i}-${j}-${catSlug.substring(0, 5).toUpperCase()}-PRO`,
+        categoryId: category.id,
+        isPublished: true,
+        imageUrl: `https://picsum.photos/seed/${pSlug}/800/800`,
+        images: [`https://picsum.photos/seed/${pSlug}-1/800/800`, `https://picsum.photos/seed/${pSlug}-2/800/800`],
+      });
+    }
+
+    // Upsert products in chunks of 10 to avoid connection limits
+    for (let k = 0; k < productsChunk.length; k += 10) {
+      const chunk = productsChunk.slice(k, k + 10);
+      await Promise.all(chunk.map(p => 
+        prisma.product.upsert({
+          where: { slug: p.slug },
+          update: p,
+          create: p
+        })
+      ));
+    }
+    totalSeeded += productsChunk.length;
   }
 
-  console.log("✅ Dummy products seeded!")
+  console.log(`✅ ${totalSeeded} dummy products seeded across ${categoriesData.length} categories!`)
 
   console.log("✅ Seed completed:")
   console.log(`   Admin: admin@shopfinity.com / Admin123!`)
