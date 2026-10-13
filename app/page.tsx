@@ -61,7 +61,6 @@ export default function HomePage() {
   const handleAddToCart = async (product: ProductResponseDto) => {
     if (!user) { toast.error('Please sign in to add items'); return }
     await addItem({ productId: product.id, quantity: 1 })
-    toast.success('Added to Cart')
   }
 
   return (
@@ -106,7 +105,7 @@ export default function HomePage() {
           >
             All Products
           </button>
-          {categories.map((c: CategoryDto) => (
+          {categories.filter((c: CategoryDto) => !c.parentId).map((c: CategoryDto) => (
             <button
               key={c.id}
               onClick={() => setCategoryFilter(c.slug || '', c.id)}

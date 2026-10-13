@@ -79,6 +79,20 @@ function mapOrder(order: OrderPayload) {
 
 export const orderService = {
   async checkout(userId: string, input: CheckoutInput) {
+    const clientKey = input.idempotencyKey?.trim()
+    if (clientKey) {
+      const existing = await prisma.order.findUnique({
+        where: { idempotencyKey: clientKey },
+        include: orderInclude,
+      })
+      if (existing) {
+        if (existing.userId !== userId) {
+          throw new ConflictError("Idempotency key has already been used for a different request")
+        }
+        return mapOrder(existing)
+      }
+    }
+
     const cart = await prisma.cart.findUnique({
       where: { userId },
       include: {
@@ -119,104 +133,123 @@ export const orderService = {
       0
     )
 
-    let addressId: string | undefined
-    if (input.shippingAddress) {
-      const address = await prisma.address.create({
-        data: {
-          userId,
-          ...input.shippingAddress,
-          label: "Shipping",
-        },
-      })
-      addressId = address.id
-    }
-
     const orderNumber = generateOrderNumber()
-    const idempotencyKey = cart.id
+    const idempotencyKey = clientKey || `ord_${cart.id}_${Date.now()}_${crypto.randomUUID().substring(0, 8)}`
 
-    const existing = await prisma.order.findUnique({ where: { idempotencyKey } })
-    if (existing) {
-      const full = await prisma.order.findUnique({
-        where: { id: existing.id },
-        include: orderInclude,
-      })
-      return mapOrder(full!)
-    }
+    try {
+      const order = await prisma.$transaction(async (tx) => {
+        let addressId: string | undefined
+        if (input.shippingAddress) {
+          const address = await tx.address.create({
+            data: {
+              userId,
+              ...input.shippingAddress,
+              label: "Shipping",
+            },
+          })
+          addressId = address.id
+        }
 
-    const order = await prisma.$transaction(async (tx) => {
-      const created = await tx.order.create({
-        data: {
-          orderNumber,
-          userId,
-          status: "Pending",
-          subtotal,
-          totalAmount: subtotal,
-          shippingCost: 0,
-          taxAmount: 0,
-          discountAmount: 0,
-          idempotencyKey,
-          notes: input.notes,
-          shippingAddressId: addressId,
-          items: {
-            create: cart.items.map((item) => ({
-              productId: item.productId,
-              quantity: item.quantity,
-              unitPrice: item.product.price,
-              totalPrice: Number(item.product.price) * item.quantity,
-            })),
-          },
-        },
-        include: orderInclude,
-      })
-
-      for (const item of cart.items) {
-        const result = await tx.product.updateMany({
-          where: {
-            id: item.productId,
-            stockQuantity: { gte: item.quantity },
-          },
+        const created = await tx.order.create({
           data: {
-            stockQuantity: { decrement: item.quantity },
+            orderNumber,
+            userId,
+            status: "Pending",
+            subtotal,
+            totalAmount: subtotal,
+            shippingCost: 0,
+            taxAmount: 0,
+            discountAmount: 0,
+            idempotencyKey,
+            notes: input.notes,
+            shippingAddressId: addressId,
+            items: {
+              create: cart.items.map((item) => ({
+                productId: item.productId,
+                quantity: item.quantity,
+                unitPrice: item.product.price,
+                totalPrice: Number(item.product.price) * item.quantity,
+              })),
+            },
+          },
+          include: orderInclude,
+        })
+
+        for (const item of cart.items) {
+          const result = await tx.product.updateMany({
+            where: {
+              id: item.productId,
+              stockQuantity: { gte: item.quantity },
+            },
+            data: {
+              stockQuantity: { decrement: item.quantity },
+            },
+          })
+          if (result.count === 0) {
+            throw new ConflictError(`Insufficient stock for product "${item.product.name}"`)
+          }
+        }
+
+        await tx.inventoryTransaction.createMany({
+          data: cart.items.map((item) => ({
+            productId: item.productId,
+            type: "Sale" as const,
+            quantity: -item.quantity,
+            stockBefore: item.product.stockQuantity,
+            stockAfter: item.product.stockQuantity - item.quantity,
+            unitCost: item.product.price,
+            reference: orderNumber,
+            createdById: userId,
+          })),
+        })
+
+        await tx.cartItem.deleteMany({
+          where: { cartId: cart.id },
+        })
+
+        await tx.paymentIntent.create({
+          data: {
+            orderId: created.id,
+            status: "Pending",
+            amount: created.totalAmount,
+            currency: "usd",
           },
         })
-        if (result.count === 0) {
-          throw new ConflictError(`Insufficient stock for product "${item.product.name}"`)
+
+        return created
+      })
+
+      // Send confirmation email asynchronously (non-blocking)
+      sendConfirmationAfterOrder(userId, order, cart.items).catch((err) => {
+        logger.error('Failed to send order confirmation email', { orderId: order.id, orderNumber: order.orderNumber }, err)
+      })
+
+      return mapOrder(order)
+    } catch (err: any) {
+      if (err?.code === "P2002" && clientKey) {
+        const target = err?.meta?.target
+        const isIdempotencyCollision =
+          Array.isArray(target)
+            ? target.includes("idempotencyKey")
+            : typeof target === "string"
+            ? target.includes("idempotencyKey") || target.includes("idempotency_key")
+            : false
+
+        if (isIdempotencyCollision) {
+          const existing = await prisma.order.findUnique({
+            where: { idempotencyKey: clientKey },
+            include: orderInclude,
+          })
+          if (existing) {
+            if (existing.userId !== userId) {
+              throw new ConflictError("Idempotency key has already been used for a different request")
+            }
+            return mapOrder(existing)
+          }
         }
       }
-
-      await tx.inventoryTransaction.createMany({
-        data: cart.items.map((item) => ({
-          productId: item.productId,
-          type: "Sale" as const,
-          quantity: -item.quantity,
-          stockBefore: item.product.stockQuantity,
-          stockAfter: item.product.stockQuantity - item.quantity,
-          unitCost: item.product.price,
-          reference: orderNumber,
-          createdById: userId,
-        })),
-      })
-
-      await tx.cartItem.deleteMany({
-        where: { cartId: cart.id },
-      })
-
-      await tx.paymentIntent.create({
-        data: {
-          orderId: created.id,
-          status: "Pending",
-          amount: created.totalAmount,
-          currency: "usd",
-        },
-      })
-
-      return created
-    })
-
-    // Send confirmation email asynchronously (non-blocking)
-    sendConfirmationAfterOrder(userId, order, cart.items).catch((err) => { logger.error('Failed to send order confirmation email', { orderId: order.id, orderNumber: order.orderNumber }, err) })
-
-    return mapOrder(order)
+      throw err
+    }
   },
 
   async getMyOrders(userId: string, query: OrderQueryInput) {
@@ -245,9 +278,12 @@ export const orderService = {
     }
   },
 
-  async getOrder(userId: string, orderId: string) {
+  async getOrder(userId: string, orderId: string, isAdmin = false) {
+    const where: Prisma.OrderWhereInput = isAdmin
+      ? { id: orderId }
+      : { id: orderId, userId }
     const order = await prisma.order.findFirst({
-      where: { id: orderId, userId },
+      where,
       include: orderInclude,
     })
     if (!order) throw new NotFoundError("Order", orderId)
@@ -284,10 +320,25 @@ export const orderService = {
     const order = await prisma.order.findUnique({ where: { id: orderId } })
     if (!order) throw new NotFoundError("Order", orderId)
 
+    if (order.status === "Cancelled" && status !== "Cancelled") {
+      throw new ConflictError("Cannot reopen an already cancelled order")
+    }
+
     const now = new Date()
 
     if (status === "Cancelled" && order.status !== "Cancelled") {
       await prisma.$transaction(async (tx) => {
+        // Atomic guard: ensure status wasn't changed to Cancelled concurrently
+        const updateCheck = await tx.order.updateMany({
+          where: { id: orderId, status: { not: "Cancelled" } },
+          data: { status, cancelledAt: now, cancelReason: null },
+        })
+
+        if (updateCheck.count === 0) {
+          // Already cancelled concurrently; skip stock restoration to prevent duplicate inventory increment
+          return
+        }
+
         const items = await tx.orderItem.findMany({ where: { orderId } })
 
         // Batch-fetch all products
@@ -318,11 +369,6 @@ export const orderService = {
             })
           }
         }
-
-        await tx.order.update({
-          where: { id: orderId },
-          data: { status, cancelledAt: now, cancelReason: null },
-        })
       })
     } else {
       const updateData: Prisma.OrderUpdateInput = { status }

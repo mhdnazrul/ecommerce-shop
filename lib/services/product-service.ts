@@ -140,8 +140,9 @@ export const productService = {
     return mapProduct(product)
   },
 
-  async search(query: ProductQueryInput) {
+  async search(query: ProductQueryInput, options?: { isAdmin?: boolean }) {
     const { search, categoryId, categorySlug, minPrice, maxPrice, isFeatured, isPublished, sortBy, sortOrder, page, limit } = query
+    const isAdmin = options?.isAdmin ?? false
 
     const where: Prisma.ProductWhereInput = { isDeleted: false }
 
@@ -156,8 +157,19 @@ export const productService = {
 
     if (categoryId) where.categoryId = categoryId
     if (categorySlug) {
-      const category = await prisma.category.findUnique({ where: { slug: categorySlug } })
-      if (category) where.categoryId = category.id
+      const category = await prisma.category.findFirst({
+        where: { slug: categorySlug, isDeleted: false },
+        include: { children: { select: { id: true }, where: { isDeleted: false } } },
+      })
+      if (category) {
+        if (category.children && category.children.length > 0) {
+          where.categoryId = { in: [category.id, ...category.children.map((c) => c.id)] }
+        } else {
+          where.categoryId = category.id
+        }
+      } else {
+        where.categoryId = "non-existent-category-id"
+      }
     }
 
     if (minPrice !== undefined || maxPrice !== undefined) {
@@ -167,7 +179,20 @@ export const productService = {
     }
 
     if (isFeatured !== undefined) where.isFeatured = isFeatured
-    if (isPublished !== undefined) where.isPublished = isPublished
+
+    if (!isAdmin) {
+      // Server-side enforcement: public users cannot view unpublished products under any circumstances
+      if (isPublished === false) {
+        return {
+          items: [],
+          ...formatPageMeta(0, page, limit),
+        }
+      }
+      where.isPublished = true
+      where.category = { isDeleted: false }
+    } else {
+      if (isPublished !== undefined) where.isPublished = isPublished
+    }
 
     const orderBy: Prisma.ProductOrderByWithRelationInput = {
       [sortBy]: sortOrder,

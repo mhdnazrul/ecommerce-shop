@@ -10,9 +10,15 @@ export const cartService = {
       body: JSON.stringify(dto),
     }),
 
+  updateQuantity: (itemId: string, quantity: number) =>
+    apiFetch<CartDto>(`/api/cart/items/${itemId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ quantity }),
+    }),
+
   removeItem: (itemId: string) =>
     apiFetch<void>(`/api/cart/items/${itemId}`, { method: 'DELETE' }),
 
   clearCart: () =>
-    apiFetch<void>('/api/cart/items', { method: 'DELETE' }),
+    apiFetch<CartDto>('/api/cart', { method: 'DELETE' }),
 }

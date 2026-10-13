@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/client"
-import { NotFoundError } from "@/lib/errors"
+import { NotFoundError, ConflictError } from "@/lib/errors"
 import { findBySlugOrThrow } from "@/lib/services/shared"
 import { logger } from "@/lib/logger"
 import type { AddCartItemInput, UpdateCartItemInput, MergeCartInput } from "@/lib/validations/cart"
@@ -32,7 +32,7 @@ function mapCartItem(item: CartItemPrisma) {
 function cartResponse(cart: CartPrisma) {
   const items = cart.items.map(mapCartItem)
   const subtotal = items.reduce(
-    (sum: number, i) => sum + i.quantity * (i.unitPrice ?? Number(i.product.price)),
+    (sum: number, i) => sum + i.quantity * Number(i.product.price),
     0
   )
   const itemsCount = items.reduce((sum: number, i) => sum + i.quantity, 0)
@@ -91,6 +91,16 @@ export const cartService = {
     const product = await validateProductForCart(input.productId)
     const cart = await getOrCreateCart(userId)
 
+    const existingItem = await prisma.cartItem.findUnique({
+      where: { cartId_productId: { cartId: cart.id, productId: input.productId } },
+    })
+    const totalRequested = (existingItem?.quantity ?? 0) + input.quantity
+    if (product.stockQuantity < totalRequested) {
+      throw new ConflictError(
+        `Insufficient stock for "${product.name}". Available: ${product.stockQuantity}, total requested: ${totalRequested}`
+      )
+    }
+
     const item = await prisma.cartItem.upsert({
       where: {
         cartId_productId: { cartId: cart.id, productId: input.productId },
@@ -118,19 +128,29 @@ export const cartService = {
     })
     if (!item) throw new NotFoundError("CartItem", itemId)
 
-    if (input.quantity === 0) {
+    if (input.quantity <= 0) {
       await prisma.cartItem.delete({ where: { id: itemId } })
-      const updatedCart = await getOrCreateCart(userId)
-      return cartResponse(updatedCart)
+    } else {
+      const product = await prisma.product.findFirst({
+        where: { id: item.productId, isDeleted: false, isPublished: true },
+        select: { name: true, stockQuantity: true },
+      })
+      if (!product) {
+        throw new NotFoundError("Product", item.productId)
+      }
+      if (product.stockQuantity < input.quantity) {
+        throw new ConflictError(
+          `Insufficient stock for "${product.name}". Available: ${product.stockQuantity}, requested: ${input.quantity}`
+        )
+      }
+      await prisma.cartItem.update({
+        where: { id: itemId },
+        data: { quantity: input.quantity },
+      })
     }
 
-    const updated = await prisma.cartItem.update({
-      where: { id: itemId },
-      data: { quantity: input.quantity },
-      include: cartItemInclude,
-    })
-
-    return mapCartItem(updated)
+    const updatedCart = await getOrCreateCart(userId)
+    return cartResponse(updatedCart)
   },
 
   async removeItem(userId: string, itemId: string) {

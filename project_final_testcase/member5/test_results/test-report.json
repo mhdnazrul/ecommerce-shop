@@ -1,0 +1,1246 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.member5.config.ts"
+    ],
+    "configFile": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\playwright.member5.config.ts",
+    "rootDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/project_final_testcase/member5/test_cases",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/project_final_testcase/member5/test_cases",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "project_final_testcase/member5/test_results/test-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "m5-bp.spec.ts",
+      "file": "m5-bp.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 5: BP for Order Service & Checkout Logic (M5_TC_007 - M5_TC_018)",
+          "file": "m5-bp.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M5_TC_007 - BP: Idempotency Path 1 - Client key exists for same user returns cached order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.835Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-bfe409aed956f38855a6",
+              "file": "m5-bp.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_008 - BP: Idempotency Path 2 - Cross-user key collision throws ConflictError",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.866Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-e95c6ca87770ecc751f0",
+              "file": "m5-bp.spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_009 - BP: Checkout Path 1 - Cart is empty or missing throws NotFoundError",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.878Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-a1dc4e0e030fd4535b87",
+              "file": "m5-bp.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_010 - BP: Checkout Path 2 - Cart contains soft-deleted product throws NotFoundError",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.889Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-bdabf560dd8f22744069",
+              "file": "m5-bp.spec.ts",
+              "line": 56,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_011 - BP: Checkout Path 3 - Product stock insufficient throws ConflictError",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.902Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-110b8d878f4239f4e4a8",
+              "file": "m5-bp.spec.ts",
+              "line": 70,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_012 - BP: Checkout Path 4 - Valid checkout with shipping address creates order and decrements stock",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Unexecuted against live Vercel environment to adhere to project safety constraints (prohibiting production DB mutations / synthetic orders).",
+                      "location": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member5\\test_cases\\m5-bp.spec.ts",
+                        "line": 90,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.923Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Unexecuted against live Vercel environment to adhere to project safety constraints (prohibiting production DB mutations / synthetic orders).",
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member5\\test_cases\\m5-bp.spec.ts",
+                            "line": 90,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-c62eb401334c0cd973cb",
+              "file": "m5-bp.spec.ts",
+              "line": 85,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_013 - BP: Checkout Path 5 - Valid checkout without shipping address creates order with null addressId",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Unexecuted against live Vercel environment to adhere to project safety constraints (prohibiting production DB mutations / synthetic orders).",
+                      "location": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member5\\test_cases\\m5-bp.spec.ts",
+                        "line": 101,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.936Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Unexecuted against live Vercel environment to adhere to project safety constraints (prohibiting production DB mutations / synthetic orders).",
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member5\\test_cases\\m5-bp.spec.ts",
+                            "line": 101,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-b7993ef1b8141d5394d1",
+              "file": "m5-bp.spec.ts",
+              "line": 96,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_014 - BP: updateStatus Path 1 - Order not found throws NotFoundError",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Unexecuted against live Vercel environment to adhere to project safety constraints (prohibiting unauthenticated admin calls / synthetic order queries).",
+                      "location": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member5\\test_cases\\m5-bp.spec.ts",
+                        "line": 112,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.945Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Unexecuted against live Vercel environment to adhere to project safety constraints (prohibiting unauthenticated admin calls / synthetic order queries).",
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member5\\test_cases\\m5-bp.spec.ts",
+                            "line": 112,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-5b7af526f9abcf699d05",
+              "file": "m5-bp.spec.ts",
+              "line": 107,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_015 - BP: updateStatus Path 2 - Cannot reopen already cancelled order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.958Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-0bf5f32829a34306288a",
+              "file": "m5-bp.spec.ts",
+              "line": 118,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_016 - BP: updateStatus Path 3 - Transition to Cancelled restores product stock atomically",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.967Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-8ec67bf8042797786bac",
+              "file": "m5-bp.spec.ts",
+              "line": 134,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_017 - BP: updateStatus Path 4 - Concurrent cancellation race CAS guard prevents duplicate stock increment",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.977Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-a7264c4aabd93d0b9b68",
+              "file": "m5-bp.spec.ts",
+              "line": 157,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_018 - BP: getOrder Path 1 - Customer accesses own order successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:52.989Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "daa0226536b52b7a9c36-3ed760f58e0587f6ebad",
+              "file": "m5-bp.spec.ts",
+              "line": 185,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m5-bva.spec.ts",
+      "file": "m5-bva.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 5: BVA for Checkout Validation Schemas (M5_TC_001 - M5_TC_006)",
+          "file": "m5-bva.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M5_TC_001 - BVA: Shipping address line1 Min-1 (length=0 empty string)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.078Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ea571631b6f53d354ec-91669ad116f023505e36",
+              "file": "m5-bva.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_002 - BVA: Shipping address line1 Min (length=1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.090Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ea571631b6f53d354ec-43d0787ea85810f8a8c7",
+              "file": "m5-bva.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_003 - BVA: Checkout notes length Max (length=500)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.098Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ea571631b6f53d354ec-03fe06704239bfbaa256",
+              "file": "m5-bva.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_004 - BVA: Checkout notes length Max+1 (length=501)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.106Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ea571631b6f53d354ec-52ffeba53de564fc1bbe",
+              "file": "m5-bva.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_005 - BVA: idempotencyKey length Max (length=100)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.115Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ea571631b6f53d354ec-a5d47d0ad09bd6060ea3",
+              "file": "m5-bva.spec.ts",
+              "line": 83,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_006 - BVA: idempotencyKey length Max+1 (length=101)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.127Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9ea571631b6f53d354ec-c380e6f926339d9fa50d",
+              "file": "m5-bva.spec.ts",
+              "line": 99,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m5-dt.spec.ts",
+      "file": "m5-dt.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 5: DT for Revenue Aggregation & State Transition Matrix (M5_TC_025 - M5_TC_030)",
+          "file": "m5-dt.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M5_TC_025 - DT: Revenue Aggregation - Order Status = Pending COD (Included in revenue)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.139Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "87ba020d2eec802f936b-1d48ffa457e8f6652c90",
+              "file": "m5-dt.spec.ts",
+              "line": 8,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_026 - DT: Revenue Aggregation - Order Status = Delivered (Included in revenue)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.147Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "87ba020d2eec802f936b-20ef259fd07a08e3edf0",
+              "file": "m5-dt.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_027 - DT: Revenue Aggregation - Order Status = Cancelled (Excluded from revenue)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.160Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "87ba020d2eec802f936b-10b3728dd2c6b644c748",
+              "file": "m5-dt.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_028 - DT: State Transition Matrix - Current: Pending, Target: Cancelled (Allowed with stock restore)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.167Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "87ba020d2eec802f936b-d4edbc05ea3ff22b568f",
+              "file": "m5-dt.spec.ts",
+              "line": 68,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_029 - DT: State Transition Matrix - Current: Cancelled, Target: Shipped (Forbidden)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.175Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "87ba020d2eec802f936b-6b5e74aec60e2234f7c5",
+              "file": "m5-dt.spec.ts",
+              "line": 88,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_030 - DT: State Transition Matrix - Current: Processing, Target: Shipped (Allowed without stock change)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Unexecuted against live Vercel environment to adhere to project safety constraints (prohibiting production DB mutations / synthetic orders).",
+                      "location": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member5\\test_cases\\m5-dt.spec.ts",
+                        "line": 107,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.183Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Unexecuted against live Vercel environment to adhere to project safety constraints (prohibiting production DB mutations / synthetic orders).",
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member5\\test_cases\\m5-dt.spec.ts",
+                            "line": 107,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "87ba020d2eec802f936b-b29197e3988fb2e0175d",
+              "file": "m5-dt.spec.ts",
+              "line": 102,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m5-ect.spec.ts",
+      "file": "m5-ect.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 5: ECT for Tenant Isolation, Gateway Guards, and Pricing Integrity (M5_TC_019 - M5_TC_024)",
+          "file": "m5-ect.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M5_TC_019 - ECT: Cross-tenant customer order isolation (unauthorized customer query)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.199Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d9eb8ec80bbf570e9ca9-d5774f057941b19918d5",
+              "file": "m5-ect.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_020 - ECT: Admin order inspection bypasses tenant isolation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.207Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d9eb8ec80bbf570e9ca9-a9605cf73bae0aa9fef7",
+              "file": "m5-ect.spec.ts",
+              "line": 26,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_021 - ECT: Payment-free Cash on Delivery checkout mode",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.216Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d9eb8ec80bbf570e9ca9-47f61624f660658a1a69",
+              "file": "m5-ect.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_022 - ECT: Unconfigured STRIPE_SECRET_KEY safely returns 503 Service Unavailable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d9eb8ec80bbf570e9ca9-96dc38e35765991c143a",
+              "file": "m5-ect.spec.ts",
+              "line": 67,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_023 - ECT: Server-side pricing integrity overrides client-tampered totals",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.237Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d9eb8ec80bbf570e9ca9-f5ed9988f55fc78654db",
+              "file": "m5-ect.spec.ts",
+              "line": 86,
+              "column": 7
+            },
+            {
+              "title": "M5_TC_024 - ECT: Session typing detects admin privileges via roles array",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-12T19:44:53.246Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d9eb8ec80bbf570e9ca9-158a16616663cb3df874",
+              "file": "m5-ect.spec.ts",
+              "line": 111,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-12T19:44:52.299Z",
+    "duration": 1000.47,
+    "expected": 26,
+    "skipped": 4,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

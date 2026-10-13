@@ -58,6 +58,20 @@ export function handleApiError(error: unknown): { message: string; statusCode: n
     }
   }
 
+  if (error instanceof SyntaxError || (error instanceof Error && error.name === "SyntaxError")) {
+    const isJsonError =
+      error instanceof Error &&
+      (error.message.includes("JSON") ||
+        error.message.includes("Unexpected") ||
+        error.message.includes("token"))
+    if (isJsonError) {
+      return {
+        message: "Invalid or malformed JSON payload",
+        statusCode: 400,
+      }
+    }
+  }
+
   if (error instanceof Error) {
     const message = process.env.NODE_ENV === "production" ? "Internal server error" : error.message
     return { message, statusCode: 500 }

@@ -52,12 +52,24 @@ export function useCart() {
     }
   })
 
+  const updateQuantityMutation = useMutation({
+    mutationFn: ({ itemId, quantity }: { itemId: string; quantity: number }) =>
+      cartService.updateQuantity(itemId, quantity),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['cart'] })
+    },
+    onError: (err: any) => {
+      toast.error(err instanceof Error ? err.message : 'Failed to update quantity.')
+    },
+  })
+
   return {
     items,
     totalPrice,
     itemCount,
     isLoading,
     addItem: (dto: AddToCartDto) => addItemMutation.mutateAsync(dto),
+    updateQuantity: (itemId: string, quantity: number) => updateQuantityMutation.mutateAsync({ itemId, quantity }),
     removeItem: (itemId: string) => removeItemMutation.mutateAsync(itemId),
     refreshCart: () => refetch(),
     clearCart: () => cartService.clearCart().then(() => queryClient.invalidateQueries({ queryKey: ['cart'] })),

@@ -13,12 +13,16 @@ interface Entry {
 const store = new Map<string, Entry>()
 
 // Clean up expired entries every 60 seconds
-setInterval(() => {
+const cleanupTimer = setInterval(() => {
   const now = Date.now()
   for (const [key, entry] of store) {
     if (entry.resetAt <= now) store.delete(key)
   }
 }, 60_000)
+
+if (typeof cleanupTimer.unref === "function") {
+  cleanupTimer.unref()
+}
 
 export function rateLimit(key: string, config: RateLimitConfig): { allowed: boolean; remaining: number; resetIn: number } {
   const now = Date.now()

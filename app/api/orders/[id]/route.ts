@@ -8,7 +8,8 @@ export async function GET(
 ) {
   return apiHandler(async (session) => {
     const { id } = await params
-    const order = await orderService.getOrder(session.user.id, id)
+    const isAdmin = session.user.roles?.includes("admin") || (session.user as any).role === "admin"
+    const order = await orderService.getOrder(session.user.id, id, isAdmin)
     return NextResponse.json({ success: true, data: order })
   }, { requireAuth: true })
 }

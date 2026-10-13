@@ -8,7 +8,7 @@ export async function GET() {
       prisma.user.count({ where: { isDeleted: false } }),
       prisma.product.count({ where: { isDeleted: false } }),
       prisma.order.count(),
-      prisma.order.aggregate({ _sum: { totalAmount: true } }),
+      prisma.order.aggregate({ where: { status: { not: "Cancelled" } }, _sum: { totalAmount: true } }),
     ])
 
     const [recentOrders, lowStockProducts] = await Promise.all([

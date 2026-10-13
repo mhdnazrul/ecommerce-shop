@@ -36,7 +36,7 @@ export function Navbar() {
 
             <div className="absolute top-full left-0 pt-4 w-96 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 grid grid-cols-2 gap-x-8 gap-y-4">
-                {categories.map((c: { id: string; name: string; slug: string }) => (
+                {categories.filter((c: { id: string; name: string; slug: string; parentId?: string | null }) => !c.parentId).map((c: { id: string; name: string; slug: string }) => (
                   <Link
                     key={c.id}
                     href={`/?categorySlug=${encodeURIComponent(c.slug)}`}

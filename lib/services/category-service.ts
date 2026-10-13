@@ -129,9 +129,14 @@ export const categoryService = {
     return category
   },
 
-  async list() {
+  async list(options?: { parentOnly?: boolean }) {
+    const where: Prisma.CategoryWhereInput = { isDeleted: false }
+    if (options?.parentOnly) {
+      where.parentId = null
+    }
+
     const items = await prisma.category.findMany({
-      where: { isDeleted: false },
+      where,
       select: {
         id: true,
         name: true,
@@ -184,13 +189,21 @@ export const categoryService = {
   },
 
   async getProductsBySlug(slug: string, page = 1, limit = 12) {
-    const category = await findBySlugOrThrow(prisma.category, slug, "Category", { select: { id: true } })
+    const category = await prisma.category.findFirst({
+      where: { slug, isDeleted: false },
+      select: {
+        id: true,
+        children: { select: { id: true }, where: { isDeleted: false } },
+      },
+    })
+    if (!category) throw new NotFoundError("Category", slug)
 
+    const categoryIds = [category.id, ...category.children.map((c) => c.id)]
     const skip = (page - 1) * limit
 
     const [items, totalCount] = await Promise.all([
       prisma.product.findMany({
-        where: { categoryId: category.id, isDeleted: false, isPublished: true },
+        where: { categoryId: { in: categoryIds }, isDeleted: false, isPublished: true },
         select: {
           id: true,
           name: true,
@@ -209,7 +222,7 @@ export const categoryService = {
         take: limit,
       }),
       prisma.product.count({
-        where: { categoryId: category.id, isDeleted: false, isPublished: true },
+        where: { categoryId: { in: categoryIds }, isDeleted: false, isPublished: true },
       }),
     ])
 

@@ -43,6 +43,7 @@ Desktop.ini
 *.swp
 *.swo
 *~
+.~lock.*#
 *.pem
 *.p12
 
@@ -58,6 +59,7 @@ coverage/
 *.backup
 *.sqlite
 *.db
+backups/
 
 # ─── AI / agent tooling (local only) ───────────────────────────────────────────
 .insforge/
@@ -74,3 +76,42 @@ coverage/
 .trae/
 .windsurf/
 .vs/
+
+# ─── Temporary Scratch & Diagnostics (local only) ──────────────────────────────
+scratch/
+audit*.js
+audit*.json
+classify_categories.js
+check_seed_and_special.js
+create_*_backup.js
+dry_run_delete.js
+execute_*.js
+extract_failures.js
+generate_*.js
+independent_audit_*.js
+inspect_*.js
+investigate_*.js
+list_categories_temp.js
+list_cats_md.js
+probe.js
+query_all_data.js
+scan_*.js
+sync-and-audit.js
+test_api_queries.js
+test_batch_tx.js
+test_interactive_tx.js
+verify_*.js
+cat_table.md
+categories_output.txt
+
+# ─── Local Playwright Staging Configs ──────────────────────────────────────────
+playwright.*.config.ts
+!playwright.config.ts
+
+# ─── Historical & Superseded STQA Workbooks (local audit only) ─────────────────
+project_final_testcase/*_v2.xlsx
+project_final_testcase/*_v3.xlsx
+project_final_testcase/*_120_Cases.xlsx
+project_final_testcase/*_30_Cases_M1_M2.xlsx
+project_final_testcase/Member_1_STQA_Test_Cases.xlsx
+project_final_testcase/Member_2_STQA_Test_Cases.xlsx

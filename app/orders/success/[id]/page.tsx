@@ -17,6 +17,7 @@ export default function OrderSuccessPage() {
     queryKey: ['order', id],
     queryFn: () => orderService.getOrder(id),
     enabled: !!id,
+    refetchOnWindowFocus: false,
   })
 
   if (isLoading) {
@@ -49,11 +50,40 @@ export default function OrderSuccessPage() {
           <div>
             <p className="text-sm text-gray-500 font-medium">Order Number</p>
             <p className="text-xl font-black text-gray-900">{order.orderNumber}</p>
+            <div className="mt-2 space-y-0.5">
+              <p className="text-xs font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded inline-block">
+                Payment: Pay on Delivery (Cash on Delivery)
+              </p>
+              <p className="text-xs text-gray-500">
+                Payment Status: <span className="font-semibold text-amber-600">Unpaid</span> (Due upon receipt)
+              </p>
+            </div>
           </div>
-          <span className={`px-4 py-2 rounded-full text-xs font-black border ${order.status === 'Pending' ? 'bg-yellow-100 text-yellow-700 border-yellow-200' : 'bg-green-100 text-green-700 border-green-200'}`}>
-            {order.status}
-          </span>
+          <div className="text-right">
+            <span className={`px-4 py-2 rounded-full text-xs font-black border inline-block ${order.status === 'Pending' ? 'bg-yellow-100 text-yellow-700 border-yellow-200' : 'bg-green-100 text-green-700 border-green-200'}`}>
+              Order: {order.status}
+            </span>
+          </div>
         </div>
+
+        {order.shippingAddress && (
+          <div className="mb-6 pb-6 border-b border-gray-100 bg-gray-50/60 p-4 rounded-xl">
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Delivering To</p>
+            <p className="text-sm font-bold text-gray-900">
+              {order.shippingAddress.firstName} {order.shippingAddress.lastName}
+            </p>
+            <p className="text-sm text-gray-600">
+              {order.shippingAddress.line1}
+              {order.shippingAddress.line2 ? `, ${order.shippingAddress.line2}` : ''}
+            </p>
+            <p className="text-sm text-gray-600">
+              {order.shippingAddress.city}{order.shippingAddress.postalCode ? `, ${order.shippingAddress.postalCode}` : ''}, {order.shippingAddress.country}
+            </p>
+            {order.shippingAddress.phone && (
+              <p className="text-xs text-gray-500 mt-1">Phone: {order.shippingAddress.phone}</p>
+            )}
+          </div>
+        )}
 
         <div className="space-y-4 mb-8">
           {order.items.map((item) => (
@@ -76,7 +106,7 @@ export default function OrderSuccessPage() {
 
         <div className="border-t border-gray-100 pt-6">
           <div className="flex justify-between items-center">
-            <span className="text-lg font-bold text-gray-600">Total Charged</span>
+            <span className="text-lg font-bold text-gray-600">Total Amount</span>
             <span className="text-3xl font-black text-gray-900">{formatPrice(order.totalAmount)}</span>
           </div>
         </div>

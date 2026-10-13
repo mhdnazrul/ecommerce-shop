@@ -6,6 +6,10 @@ import { apiHandler, validateSchema } from "@/lib/errors/api-handler"
 export async function POST(req: NextRequest) {
   return apiHandler(async (session) => {
     const body = await req.json().catch(() => ({}))
+    const headerKey = req.headers.get("idempotency-key")
+    if (headerKey && !body.idempotencyKey) {
+      body.idempotencyKey = headerKey
+    }
     const data = validateSchema(checkoutSchema, body)
     const order = await orderService.checkout(session.user.id, data)
     return NextResponse.json({ success: true, data: order }, { status: 201 })

@@ -21,14 +21,25 @@ export const createProductSchema = z.object({
 
 export const updateProductSchema = createProductSchema.partial()
 
+const booleanQueryParam = z.preprocess((val) => {
+  if (val === undefined || val === null || val === "") return undefined
+  if (typeof val === "boolean") return val
+  if (typeof val === "string") {
+    const lower = val.toLowerCase().trim()
+    if (lower === "true" || lower === "1") return true
+    if (lower === "false" || lower === "0") return false
+  }
+  return val
+}, z.boolean().optional())
+
 export const productQuerySchema = z.object({
   search: z.string().optional(),
   categoryId: z.string().uuid().optional(),
   categorySlug: z.string().optional(),
   minPrice: z.coerce.number().min(0).optional(),
   maxPrice: z.coerce.number().min(0).optional(),
-  isFeatured: z.coerce.boolean().optional(),
-  isPublished: z.coerce.boolean().optional(),
+  isFeatured: booleanQueryParam,
+  isPublished: booleanQueryParam,
   sortBy: z.enum(["name", "price", "createdAt", "updatedAt"]).optional().default("createdAt"),
   sortOrder: z.enum(["asc", "desc"]).optional().default("desc"),
   page: z.coerce.number().int().min(1).default(1),

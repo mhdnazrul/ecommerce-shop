@@ -7,6 +7,7 @@ import { getFullImageUrl } from "@/lib/utils"
 import { formatPrice } from "@/lib/formatters"
 import Link from "next/link"
 import toast from "react-hot-toast"
+import { useCart } from "@/hooks/useCart"
 
 interface ProductDetail {
   id: string
@@ -32,6 +33,7 @@ interface ProductDetail {
 export default function ProductDetailClient(props: { params: Promise<{ slug: string }> }) {
   const params = use(props.params)
   const { user, isLoading: authLoading } = useAuth()
+  const { addItem } = useCart()
 
   const [product, setProduct] = useState<ProductDetail | null>(null)
   const [loading, setLoading] = useState(true)
@@ -120,19 +122,9 @@ export default function ProductDetailClient(props: { params: Promise<{ slug: str
     }
     setAdding(true)
     try {
-      const res = await fetch("/api/cart/items", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ productId: product.id, quantity: qty }),
-      })
-      const json = await res.json()
-      if (json.success) {
-        toast.success("Added to Cart")
-      } else {
-        toast.error(json.message || "Failed to add to cart")
-      }
-    } catch {
-      toast.error("Failed to add to cart")
+      await addItem({ productId: product.id, quantity: qty })
+    } catch (err: any) {
+      toast.error(err instanceof Error ? err.message : "Failed to add to cart")
     } finally {
       setAdding(false)
     }

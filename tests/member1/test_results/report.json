@@ -1,0 +1,114 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/member1_test_cases",
+      "--reporter=json"
+    ],
+    "configFile": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\playwright.config.ts",
+    "rootDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\helpers\\global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run build && npm run start",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": true,
+      "timeout": 120000,
+      "cwd": "."
+    }
+  },
+  "suites": [],
+  "errors": [
+    {
+      "message": "Error: Cannot find module '../fixtures/auth-fixture'\nRequire stack:\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-delete.spec.ts\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\common\\index.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\program.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js",
+      "stack": "Error: Cannot find module '../fixtures/auth-fixture'\nRequire stack:\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-delete.spec.ts\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\common\\index.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\program.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js\n    at Object.<anonymous> (C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-delete.spec.ts:1:1)",
+      "location": {
+        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-delete.spec.ts",
+        "column": 1,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mmember1_test_cases\\m1-bp-delete.spec.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m\"../fixtures/auth-fixture\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m\"Member 1: Basis Path for categoryService.delete (M1_TC_019 - M1_TC_021)\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   \u001b[0m"
+    },
+    {
+      "message": "Error: Cannot find module '../fixtures/auth-fixture'\nRequire stack:\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-gettree.spec.ts\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\common\\index.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\program.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js",
+      "stack": "Error: Cannot find module '../fixtures/auth-fixture'\nRequire stack:\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-gettree.spec.ts\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\common\\index.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\program.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js\n    at Object.<anonymous> (C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-gettree.spec.ts:1:1)",
+      "location": {
+        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-gettree.spec.ts",
+        "column": 1,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mmember1_test_cases\\m1-bp-gettree.spec.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m\"../fixtures/auth-fixture\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m\"Member 1: Basis Path for categoryService.getTree (M1_TC_016 - M1_TC_018)\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   \u001b[0m"
+    },
+    {
+      "message": "Error: Cannot find module '../fixtures/auth-fixture'\nRequire stack:\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-slug.spec.ts\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\common\\index.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\program.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js",
+      "stack": "Error: Cannot find module '../fixtures/auth-fixture'\nRequire stack:\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-slug.spec.ts\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\common\\index.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\program.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js\n    at Object.<anonymous> (C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-slug.spec.ts:1:1)",
+      "location": {
+        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-bp-slug.spec.ts",
+        "column": 1,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mmember1_test_cases\\m1-bp-slug.spec.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m\"../fixtures/auth-fixture\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m\"Member 1: Basis Path for ensureSlugUnique (M1_TC_022 - M1_TC_024)\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   \u001b[90m// Creating a category indirectly triggers ensureSlugUnique\u001b[39m\u001b[0m"
+    },
+    {
+      "message": "Error: Cannot find module '../fixtures/auth-fixture'\nRequire stack:\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-remaining-cases.spec.ts\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\common\\index.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\program.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js",
+      "stack": "Error: Cannot find module '../fixtures/auth-fixture'\nRequire stack:\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-remaining-cases.spec.ts\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\common\\index.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\playwright\\lib\\program.js\n- C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js\n    at Object.<anonymous> (C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-remaining-cases.spec.ts:1:1)",
+      "location": {
+        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\member1_test_cases\\m1-remaining-cases.spec.ts",
+        "column": 1,
+        "line": 1
+      },
+      "snippet": "\u001b[90m   at \u001b[39mmember1_test_cases\\m1-remaining-cases.spec.ts:1\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[36mimport\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[36mfrom\u001b[39m \u001b[32m\"../fixtures/auth-fixture\"\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mdescribe(\u001b[32m\"Member 1: Remaining Cases (M1_TC_025 - M1_TC_050)\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   \u001b[0m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-09-20T21:44:28.605Z",
+    "duration": 31184.162,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

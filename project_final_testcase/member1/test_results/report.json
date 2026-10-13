@@ -1,0 +1,2147 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.member1.config.ts",
+      "--reporter=json"
+    ],
+    "configFile": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\playwright.member1.config.ts",
+    "rootDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/project_final_testcase/member1/test_cases",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\helpers\\global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/project_final_testcase/member1/test_cases",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run build && npm run start",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": true,
+      "timeout": 120000,
+      "cwd": "."
+    }
+  },
+  "suites": [
+    {
+      "title": "m1-bp-delete.spec.ts",
+      "file": "m1-bp-delete.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 1: Basis Path for categoryService.delete (M1_TC_019 - M1_TC_021)",
+          "file": "m1-bp-delete.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M1_TC_019 - BP: delete Path 1 (Deleting category with subcategories)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12411,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:30:26.673Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b461b496c900dbfd7c5c-37ca0cd4624c44aab8e0",
+              "file": "m1-bp-delete.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_020 - BP: delete Path 2 (Deleting category with products)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10231,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:30:39.203Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b461b496c900dbfd7c5c-291c7837abff086441d4",
+              "file": "m1-bp-delete.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_021 - BP: delete Path 3 (Deleting empty category)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7998,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:30:49.447Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b461b496c900dbfd7c5c-280b7e366c5cb8216a0a",
+              "file": "m1-bp-delete.spec.ts",
+              "line": 47,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m1-bp-gettree.spec.ts",
+      "file": "m1-bp-gettree.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 1: Basis Path for categoryService.getTree (M1_TC_016 - M1_TC_018)",
+          "file": "m1-bp-gettree.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M1_TC_016 - BP: getTree Path 1 (Tree with only root categories)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 628,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:30:57.463Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5655b1383d4aa9b2f4a3-af535d4269094e4fa2ec",
+              "file": "m1-bp-gettree.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_017 - BP: getTree Path 2 (Tree with valid parent-child)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8239,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:30:58.100Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5655b1383d4aa9b2f4a3-e685d76435785c583df8",
+              "file": "m1-bp-gettree.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_018 - BP: getTree Path 3 (Tree with orphaned child)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 613,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:06.351Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5655b1383d4aa9b2f4a3-0480871645a11c36485d",
+              "file": "m1-bp-gettree.spec.ts",
+              "line": 45,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m1-bp-search.spec.ts",
+      "file": "m1-bp-search.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 1: Basis Path for productService.search (M1_TC_008 - M1_TC_015)",
+          "file": "m1-bp-search.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M1_TC_008 - BP: search Path 1 (Base search query with no filters)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 995,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:06.979Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1aba8611b3fa93d21919-62f71c7c8149bbde88d0",
+              "file": "m1-bp-search.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_009 - BP: search Path 2 (Search with keyword filter)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 856,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:07.982Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1aba8611b3fa93d21919-8b9ef721e4eba39d6a7f",
+              "file": "m1-bp-search.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_010 - BP: search Path 3 (Search with categoryId filter)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1231,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:08.850Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1aba8611b3fa93d21919-d9105316d41e50d0d446",
+              "file": "m1-bp-search.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_011 - BP: search Path 4 (Search with valid categorySlug)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1466,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:10.094Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1aba8611b3fa93d21919-a6f1c802ba3734986463",
+              "file": "m1-bp-search.spec.ts",
+              "line": 43,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_012 - BP: search Path 5 (Search with invalid categorySlug)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1471,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:11.572Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1aba8611b3fa93d21919-243322822249d3f97988",
+              "file": "m1-bp-search.spec.ts",
+              "line": 53,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_013 - BP: search Path 6 (Search with price bounds)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 898,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:13.058Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1aba8611b3fa93d21919-57742ffaa9b52ac537e0",
+              "file": "m1-bp-search.spec.ts",
+              "line": 61,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_014 - BP: search Path 7 (Search with isFeatured)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 625,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:13.982Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1aba8611b3fa93d21919-c69e62729a4b4b31dec5",
+              "file": "m1-bp-search.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_015 - BP: search Path 8 (Search with isPublished)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 892,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at forEach (C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-bp-search.spec.ts:85:29)\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-bp-search.spec.ts:84:21",
+                        "location": {
+                          "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-bp-search.spec.ts",
+                          "column": 29,
+                          "line": 85
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 83 |\u001b[39m     \u001b[36mconst\u001b[39m body \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m res\u001b[33m.\u001b[39mjson()\u001b[33m;\u001b[39m\n \u001b[90m 84 |\u001b[39m     body\u001b[33m.\u001b[39mdata\u001b[33m.\u001b[39mitems\u001b[33m.\u001b[39mforEach((p\u001b[33m:\u001b[39m any) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 85 |\u001b[39m       expect(p\u001b[33m.\u001b[39misPublished)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// API doesn't expose isPublished in payload? Actually, API only returns published? No, API returns whatever. But productService.search doesn't restrict isPublished unless passed.\u001b[39m\n \u001b[90m    |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 86 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 87 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 88 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-bp-search.spec.ts",
+                            "column": 29,
+                            "line": 85
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  83 |     const body = await res.json();\n  84 |     body.data.items.forEach((p: any) => {\n> 85 |       expect(p.isPublished).toBe(false); // API doesn't expose isPublished in payload? Actually, API only returns published? No, API returns whatever. But productService.search doesn't restrict isPublished unless passed.\n     |                             ^\n  86 |     });\n  87 |   });\n  88 | });\n    at forEach (C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-bp-search.spec.ts:85:29)\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-bp-search.spec.ts:84:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:14.620Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-bp-search-Member-1-Basi-e5285--8-Search-with-isPublished--chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-bp-search-Member-1-Basi-e5285--8-Search-with-isPublished--chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-bp-search.spec.ts",
+                        "column": 29,
+                        "line": 85
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1aba8611b3fa93d21919-557563aabec38f4de619",
+              "file": "m1-bp-search.spec.ts",
+              "line": 80,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m1-bp-slug.spec.ts",
+      "file": "m1-bp-slug.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 1: Basis Path for ensureSlugUnique (M1_TC_022 - M1_TC_024)",
+          "file": "m1-bp-slug.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M1_TC_022 - BP: slug Path 1 (Base slug is immediately unique)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6694,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:16.089Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0a61be471575fa40ed4-0a947b7abb2216d5b1fd",
+              "file": "m1-bp-slug.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_023 - BP: slug Path 2 (Base slug conflicts, counter appends)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8929,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:22.898Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0a61be471575fa40ed4-9d2344f70718f3855948",
+              "file": "m1-bp-slug.spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_024 - BP: slug Path 3 (Base slug matches excludeId)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7598,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:31.839Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b0a61be471575fa40ed4-6f49ca92634a02224402",
+              "file": "m1-bp-slug.spec.ts",
+              "line": 29,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m1-bva-limit.spec.ts",
+      "file": "m1-bva-limit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 1: BVA for Product Query Limit (M1_TC_001 - M1_TC_007)",
+          "file": "m1-bva-limit.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M1_TC_001 - BVA limit Min-1 (limit=0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:39.454Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d26ec7bfa489c4ac332-04c56e41aca9794b3cfa",
+              "file": "m1-bva-limit.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_002 - BVA limit Min (limit=1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 852,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:39.478Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d26ec7bfa489c4ac332-71386c942403a4a6e885",
+              "file": "m1-bva-limit.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_003 - BVA limit Min+1 (limit=2)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 863,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:40.341Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d26ec7bfa489c4ac332-c66a5a1756aa5cb97a95",
+              "file": "m1-bva-limit.spec.ts",
+              "line": 21,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_004 - BVA limit Nominal (limit=12)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 859,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:41.214Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d26ec7bfa489c4ac332-b8fc71601a65aee4aae0",
+              "file": "m1-bva-limit.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_005 - BVA limit Max-1 (limit=99)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1126,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:42.083Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d26ec7bfa489c4ac332-8733076a12335b72ee47",
+              "file": "m1-bva-limit.spec.ts",
+              "line": 37,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_006 - BVA limit Max (limit=100)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 862,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:43.219Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d26ec7bfa489c4ac332-5ad1c9a2567a6ea52a31",
+              "file": "m1-bva-limit.spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_007 - BVA limit Max+1 (limit=101)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:44.092Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2d26ec7bfa489c4ac332-23d051c39a9cee3a36b1",
+              "file": "m1-bva-limit.spec.ts",
+              "line": 53,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m1-remaining-cases.spec.ts",
+      "file": "m1-remaining-cases.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 1: Remaining Cases (M1_TC_025 - M1_TC_050)",
+          "file": "m1-remaining-cases.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M1_TC_025 - BP: Pagination 1 (Pagination with 1 page total)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2086,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:44.114Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-3e3de6dd56246053c658",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 21,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_026 - BP: Pagination 2 (Prev button disabled)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2157,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:46.268Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-e35ca3bfef10e152b11f",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 31,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_027 - BP: Pagination 3 (Next button disabled)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2138,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:48.437Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-21ff259d1de3b1aa6910",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 38,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_028 - BP: Pagination 4 (Ellipsis rendering)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3637,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:50.586Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-940e9c0f06bf8ea6fcd3",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_029 - ECT: Valid Category Name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9793,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:31:54.236Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-585f4763cbad448de43f",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_030 - ECT: Valid Category Desc",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7683,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:04.043Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-fcfa734e7e25be230832",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 60,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_031 - ECT: Valid Parent UUID",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6000,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:67:26",
+                        "location": {
+                          "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                          "column": 26,
+                          "line": 67
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 65 |\u001b[39m   test(\u001b[32m\"M1_TC_031 - ECT: Valid Parent UUID\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ adminRequest }) \u001b[33m=>\u001b[39m {\n \u001b[90m 66 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m adminRequest\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/categories\"\u001b[39m\u001b[33m,\u001b[39m { data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Valid \"\u001b[39m \u001b[33m+\u001b[39m \u001b[33mDate\u001b[39m\u001b[33m.\u001b[39mnow()\u001b[33m,\u001b[39m parentId\u001b[33m:\u001b[39m validParentId } })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 67 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 68 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 69 |\u001b[39m\n \u001b[90m 70 |\u001b[39m   test(\u001b[32m\"M1_TC_032 - ECT: Invalid Category Name\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ adminRequest }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                            "column": 26,
+                            "line": 67
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n  65 |   test(\"M1_TC_031 - ECT: Valid Parent UUID\", async ({ adminRequest }) => {\n  66 |     const res = await adminRequest.post(\"/api/categories\", { data: { name: \"Valid \" + Date.now(), parentId: validParentId } });\n> 67 |     expect(res.status()).toBe(201);\n     |                          ^\n  68 |   });\n  69 |\n  70 |   test(\"M1_TC_032 - ECT: Invalid Category Name\", async ({ adminRequest }) => {\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:67:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:11.740Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--b77c8-031---ECT-Valid-Parent-UUID-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--b77c8-031---ECT-Valid-Parent-UUID-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--b77c8-031---ECT-Valid-Parent-UUID-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                        "column": 26,
+                        "line": 67
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-34864716bf49d15bdfdc",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_032 - ECT: Invalid Category Name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4996,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:18.468Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-ef0a7a7e44f86e7e705a",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 70,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_033 - ECT: Invalid Category Name (Too long)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3489,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:23.663Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-515f8e2c92f1d5f06e81",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 75,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_034 - ECT: Invalid Category Desc",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4541,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:27.163Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-55d6ad5b413964adc3f5",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 80,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_035 - ECT: Invalid Parent UUID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3441,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:31.714Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-e67593d6c7a3ba725cfe",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 85,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_036 - ECT: Invalid Parent Type",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4539,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:35.166Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-0001aa0167582c53cc27",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 90,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_037 - DT: Subcategory Success",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4376,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:98:26",
+                        "location": {
+                          "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                          "column": 26,
+                          "line": 98
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  96 |\u001b[39m   test(\u001b[32m\"M1_TC_037 - DT: Subcategory Success\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ adminRequest }) \u001b[33m=>\u001b[39m {\n \u001b[90m  97 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m adminRequest\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/categories\"\u001b[39m\u001b[33m,\u001b[39m { data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Sub \"\u001b[39m \u001b[33m+\u001b[39m \u001b[33mDate\u001b[39m\u001b[33m.\u001b[39mnow()\u001b[33m,\u001b[39m parentId\u001b[33m:\u001b[39m validParentId } })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// 404 if parent not found\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  99 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 100 |\u001b[39m\n \u001b[90m 101 |\u001b[39m   test(\u001b[32m\"M1_TC_038 - DT: Parent Not Found Error\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ adminRequest }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                            "column": 26,
+                            "line": 98
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n   96 |   test(\"M1_TC_037 - DT: Subcategory Success\", async ({ adminRequest }) => {\n   97 |     const res = await adminRequest.post(\"/api/categories\", { data: { name: \"Sub \" + Date.now(), parentId: validParentId } });\n>  98 |     expect(res.status()).toBe(201); // 404 if parent not found\n      |                          ^\n   99 |   });\n  100 |\n  101 |   test(\"M1_TC_038 - DT: Parent Not Found Error\", async ({ adminRequest }) => {\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:98:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:39.721Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--b0fba-37---DT-Subcategory-Success-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--b0fba-37---DT-Subcategory-Success-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--b0fba-37---DT-Subcategory-Success-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                        "column": 26,
+                        "line": 98
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-720b6be5a2316b4f49b1",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 96,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_038 - DT: Parent Not Found Error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6073,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:44.929Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-af967fa997e5ec5e4a1e",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 101,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_039 - DT: Parent Format Error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3512,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:51.210Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-7a9c102aad539d01b1a3",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 106,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_040 - DT: Name Format Error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4734,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:54.732Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-bda797bab82bf7aac41e",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 111,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_041 - DT: Root Category Success",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6011,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:32:59.479Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-5129b5ab0a086168e8f4",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 116,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_042 - DT: Prod Creation Success",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5602,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:124:26",
+                        "location": {
+                          "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                          "column": 26,
+                          "line": 124
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 122 |\u001b[39m   test(\u001b[32m\"M1_TC_042 - DT: Prod Creation Success\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ adminRequest }) \u001b[33m=>\u001b[39m {\n \u001b[90m 123 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m adminRequest\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/products\"\u001b[39m\u001b[33m,\u001b[39m { data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Prod \"\u001b[39m \u001b[33m+\u001b[39m \u001b[33mDate\u001b[39m\u001b[33m.\u001b[39mnow()\u001b[33m,\u001b[39m price\u001b[33m:\u001b[39m \u001b[35m10\u001b[39m\u001b[33m,\u001b[39m categoryId\u001b[33m:\u001b[39m validParentId\u001b[33m,\u001b[39m sku\u001b[33m:\u001b[39m \u001b[32m\"A1-\"\u001b[39m \u001b[33m+\u001b[39m \u001b[33mDate\u001b[39m\u001b[33m.\u001b[39mnow() } })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 124 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m \n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 125 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 126 |\u001b[39m\n \u001b[90m 127 |\u001b[39m   test(\u001b[32m\"M1_TC_043 - DT: Prod Cat Not Found\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ adminRequest }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                            "column": 26,
+                            "line": 124
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n  122 |   test(\"M1_TC_042 - DT: Prod Creation Success\", async ({ adminRequest }) => {\n  123 |     const res = await adminRequest.post(\"/api/products\", { data: { name: \"Prod \" + Date.now(), price: 10, categoryId: validParentId, sku: \"A1-\" + Date.now() } });\n> 124 |     expect(res.status()).toBe(201); \n      |                          ^\n  125 |   });\n  126 |\n  127 |   test(\"M1_TC_043 - DT: Prod Cat Not Found\", async ({ adminRequest }) => {\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:124:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:33:05.505Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--09bcf----DT-Prod-Creation-Success-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--09bcf----DT-Prod-Creation-Success-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--09bcf----DT-Prod-Creation-Success-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                        "column": 26,
+                        "line": 124
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-05245aa3ea5355c77378",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 122,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_043 - DT: Prod Cat Not Found",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5756,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:33:11.793Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-5c6829e5c4c8dbb88709",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 127,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_044 - DT: Prod SKU Conflict",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5087,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m409\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m409\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:136:26",
+                        "location": {
+                          "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                          "column": 26,
+                          "line": 136
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 134 |\u001b[39m     \u001b[36mawait\u001b[39m adminRequest\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/products\"\u001b[39m\u001b[33m,\u001b[39m { data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Prod1\"\u001b[39m\u001b[33m,\u001b[39m price\u001b[33m:\u001b[39m \u001b[35m10\u001b[39m\u001b[33m,\u001b[39m categoryId\u001b[33m:\u001b[39m validParentId\u001b[33m,\u001b[39m sku } })\u001b[33m;\u001b[39m\n \u001b[90m 135 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m adminRequest\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/products\"\u001b[39m\u001b[33m,\u001b[39m { data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Prod2\"\u001b[39m\u001b[33m,\u001b[39m price\u001b[33m:\u001b[39m \u001b[35m10\u001b[39m\u001b[33m,\u001b[39m categoryId\u001b[33m:\u001b[39m validParentId\u001b[33m,\u001b[39m sku } })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 136 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m409\u001b[39m)\u001b[33m;\u001b[39m \n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 137 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 138 |\u001b[39m\n \u001b[90m 139 |\u001b[39m   test(\u001b[32m\"M1_TC_045 - DT: Prod Null SKU Success\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ adminRequest }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                            "column": 26,
+                            "line": 136
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m409\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n  134 |     await adminRequest.post(\"/api/products\", { data: { name: \"Prod1\", price: 10, categoryId: validParentId, sku } });\n  135 |     const res = await adminRequest.post(\"/api/products\", { data: { name: \"Prod2\", price: 10, categoryId: validParentId, sku } });\n> 136 |     expect(res.status()).toBe(409); \n      |                          ^\n  137 |   });\n  138 |\n  139 |   test(\"M1_TC_045 - DT: Prod Null SKU Success\", async ({ adminRequest }) => {\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:136:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:33:17.742Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--e0e05--044---DT-Prod-SKU-Conflict-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--e0e05--044---DT-Prod-SKU-Conflict-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--e0e05--044---DT-Prod-SKU-Conflict-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                        "column": 26,
+                        "line": 136
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-82a32f0ac1255d19954b",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 132,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_045 - DT: Prod Null SKU Success",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6266,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:141:26",
+                        "location": {
+                          "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                          "column": 26,
+                          "line": 141
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 139 |\u001b[39m   test(\u001b[32m\"M1_TC_045 - DT: Prod Null SKU Success\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ adminRequest }) \u001b[33m=>\u001b[39m {\n \u001b[90m 140 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m adminRequest\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/products\"\u001b[39m\u001b[33m,\u001b[39m { data\u001b[33m:\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Prod \"\u001b[39m \u001b[33m+\u001b[39m \u001b[33mDate\u001b[39m\u001b[33m.\u001b[39mnow()\u001b[33m,\u001b[39m price\u001b[33m:\u001b[39m \u001b[35m10\u001b[39m\u001b[33m,\u001b[39m categoryId\u001b[33m:\u001b[39m validParentId } })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 141 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m201\u001b[39m)\u001b[33m;\u001b[39m \n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 142 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 143 |\u001b[39m\n \u001b[90m 144 |\u001b[39m   \u001b[90m// ================= ECT: Product Query Params =================\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                            "column": 26,
+                            "line": 141
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n  139 |   test(\"M1_TC_045 - DT: Prod Null SKU Success\", async ({ adminRequest }) => {\n  140 |     const res = await adminRequest.post(\"/api/products\", { data: { name: \"Prod \" + Date.now(), price: 10, categoryId: validParentId } });\n> 141 |     expect(res.status()).toBe(201); \n      |                          ^\n  142 |   });\n  143 |\n  144 |   // ================= ECT: Product Query Params =================\n    at C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts:141:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:33:23.514Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--472c8----DT-Prod-Null-SKU-Success-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--472c8----DT-Prod-Null-SKU-Success-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--472c8----DT-Prod-Null-SKU-Success-chromium\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\test_cases\\m1-remaining-cases.spec.ts",
+                        "column": 26,
+                        "line": 141
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-7abfffbc4d178e9319b5",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 139,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_046 - ECT: Invalid Query Page",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 60051,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 60000ms exceeded while setting up \"adminRequest\".\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 60000ms exceeded while setting up \"adminRequest\".\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 60000ms exceeded while setting up \"adminRequest\".\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\helpers\\auth.ts",
+                            "column": 14,
+                            "line": 8
+                          },
+                          "message": "Error: page.waitForURL: Test ended.\n=========================== logs ===========================\nwaiting for navigation to \"**/\" until \"load\"\n============================================================\n\n   at ..\\..\\..\\tests\\helpers\\auth.ts:8\n\n   6 |   await page.fill(\"#password\", \"Admin123!\")\n   7 |   await page.click('button[type=\"submit\"]:has-text(\"Sign In\")')\n>  8 |   await page.waitForURL(\"**/\")\n     |              ^\n   9 |   await page.waitForLoadState(\"networkidle\")\n  10 | }\n  11 |\n    at loginAsAdmin (C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\tests\\helpers\\auth.ts:8:14)\n    at Object.adminRequest (C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\project_final_testcase\\member1\\fixtures\\auth-fixture.ts:15:5)"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:33:30.618Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--810f1-46---ECT-Invalid-Query-Page-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--810f1-46---ECT-Invalid-Query-Page-chromium\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\test-results\\m1-remaining-cases-Member--810f1-46---ECT-Invalid-Query-Page-chromium\\trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-5e5dda61e288d579aaf9",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 145,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_047 - ECT: Valid Query Page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5862,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:34:31.645Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-e3b2fe31733bdf45e55d",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 150,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_048 - ECT: Invalid Query SortBy",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3356,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:34:37.708Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-0a21a0e542c4fbee6a0b",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 155,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_049 - ECT: Valid Query SortBy",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5422,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:34:41.075Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-6afe8bbe549aaec88f27",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 160,
+              "column": 7
+            },
+            {
+              "title": "M1_TC_050 - ECT: Invalid Query SortOrder",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3357,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-09-21T17:34:46.507Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0d681318a2a77be8a5d7-7bc5523c50235386034f",
+              "file": "m1-remaining-cases.spec.ts",
+              "line": 165,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-21T17:29:54.731Z",
+    "duration": 295438.143,
+    "expected": 43,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}

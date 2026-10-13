@@ -43,10 +43,24 @@ export default function AdminOrdersPage() {
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                     <span className="font-bold text-gray-900">Order ID:</span>
-                     <p className="text-xs bg-gray-100 text-gray-600 font-mono px-2 py-0.5 rounded-md truncate max-w-[200px]">{order.id}</p>
+                    <span className="font-black text-gray-900 text-base">{order.orderNumber || order.id}</span>
+                    <span className="text-xs font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">
+                      Pay on Delivery
+                    </span>
                   </div>
+                  <p className="text-xs text-gray-400 font-mono mb-1">ID: {order.id}</p>
                   <p className="text-sm text-gray-500 font-medium">{new Date(order.createdAt).toLocaleString()}</p>
+                  {order.shippingAddress && (
+                    <div className="mt-2 text-xs text-gray-600 bg-gray-50 p-2 rounded-lg border border-gray-100">
+                      <span className="font-bold text-gray-900">Ship to: </span>
+                      {order.shippingAddress.firstName} {order.shippingAddress.lastName} — {order.shippingAddress.line1}, {order.shippingAddress.city}
+                      {order.shippingAddress.postalCode ? ` (${order.shippingAddress.postalCode})` : ''}
+                      {order.shippingAddress.phone ? ` • Tel: ${order.shippingAddress.phone}` : ''}
+                    </div>
+                  )}
+                  {order.notes && (
+                    <p className="mt-1 text-xs text-gray-500 italic">Note: "{order.notes}"</p>
+                  )}
                 </div>
                 <div className="flex items-center gap-6">
                   <div className="flex flex-col items-end">

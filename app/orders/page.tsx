@@ -9,6 +9,8 @@ import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
 import { useRouter } from 'next/navigation'
 import { formatPrice } from '@/lib/formatters'
 
+import Link from 'next/link'
+
 export default function OrdersPage() {
   const { user, isLoading: authLoading } = useAuth()
   const router = useRouter()
@@ -16,7 +18,7 @@ export default function OrdersPage() {
   const { data: orders = [], isLoading } = useOrders()
 
   useEffect(() => {
-    if (!authLoading && !user) router.push('/login')
+    if (!authLoading && !user) router.push('/login?callbackUrl=/orders')
   }, [user, authLoading, router])
 
   if (authLoading || isLoading) return <div className="flex justify-center py-20"><LoadingSpinner size="lg" /></div>
@@ -34,8 +36,10 @@ export default function OrdersPage() {
             <div key={order.id} className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <p className="text-xs text-gray-500 font-mono">{order.id}</p>
-                  <p className="text-sm text-gray-400">{new Date(order.createdAt).toLocaleDateString()}</p>
+                  <Link href={`/orders/success/${order.id}`} className="text-sm font-bold text-indigo-600 hover:underline">
+                    {order.orderNumber || order.id}
+                  </Link>
+                  <p className="text-xs text-gray-400 mt-0.5">{new Date(order.createdAt).toLocaleDateString()}</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${ORDER_STATUS_COLOR[order.status]}`}>

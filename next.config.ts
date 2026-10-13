@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com",
       },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
     ],
   },
 
@@ -36,7 +40,7 @@ const nextConfig: NextConfig = {
               "img-src 'self' data: blob: https:",
               "font-src 'self' https://fonts.gstatic.com",
               "frame-src 'self' https://js.stripe.com https://*.stripe.com",
-              "connect-src 'self' https://api.stripe.com https://*.stripe.com https://*.cloudinary.com https://o*.ingest.sentry.io",
+              "connect-src 'self' https://api.stripe.com https://*.stripe.com https://*.cloudinary.com https://*.ingest.sentry.io",
               "worker-src 'self' blob:",
             ].join("; "),
           },

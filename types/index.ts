@@ -83,6 +83,7 @@ export interface CategoryDto {
   slug: string
   description: string
   displayOrder?: number
+  parentId?: string | null
 }
 
 export interface CreateCategoryDto {

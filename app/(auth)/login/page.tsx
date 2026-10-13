@@ -16,10 +16,19 @@ const loginSchema = z.object({
 
 type LoginInput = z.infer<typeof loginSchema>
 
+export function getSafeCallbackUrl(raw: string | null | undefined): string {
+  if (!raw) return "/"
+  const trimmed = raw.trim()
+  if (trimmed.startsWith("/") && !trimmed.startsWith("//") && !trimmed.includes("\\")) {
+    return trimmed
+  }
+  return "/"
+}
+
 export default function LoginPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get("callbackUrl") || "/"
+  const callbackUrl = getSafeCallbackUrl(searchParams.get("callbackUrl") || searchParams.get("redirect"))
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
 
   const {

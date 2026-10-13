@@ -2,12 +2,17 @@ import { NextRequest, NextResponse } from "next/server"
 import { productService } from "@/lib/services/product-service"
 import { createProductSchema, productQuerySchema } from "@/lib/validations/product"
 import { apiHandler, validateSchema } from "@/lib/errors/api-handler"
+import { auth } from "@/auth"
 
 export async function GET(req: NextRequest) {
   return apiHandler(async () => {
     const searchParams = Object.fromEntries(req.nextUrl.searchParams.entries())
     const query = validateSchema(productQuerySchema, searchParams)
-    const result = await productService.search(query)
+
+    const session = await auth()
+    const isAdmin = !!session?.user?.roles?.includes("admin")
+
+    const result = await productService.search(query, { isAdmin })
     return NextResponse.json({ success: true, data: result })
   })
 }

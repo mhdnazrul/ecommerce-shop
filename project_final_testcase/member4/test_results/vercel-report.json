@@ -1,0 +1,741 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.vercel.member4.config.ts",
+      "--list"
+    ],
+    "configFile": "C:\\Users\\mhd\\Desktop\\projects\\ecommerce-shop\\playwright.vercel.member4.config.ts",
+    "rootDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/project_final_testcase/member4/test_cases",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/mhd/Desktop/projects/ecommerce-shop/project_final_testcase/member4/test_cases",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "project_final_testcase/member4/test_results/vercel-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "m4-bp.spec.ts",
+      "file": "m4-bp.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 4: BP for Categories, Dashboard, and Register (M4_TC_017 - M4_TC_026)",
+          "file": "m4-bp.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M4_TC_017 - BP Category Delete: Category not found",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-fd5ea435790350ed8c31",
+              "file": "m4-bp.spec.ts",
+              "line": 54,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_018 - BP Category Delete: Category has children",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-f366c835ddb8a913c627",
+              "file": "m4-bp.spec.ts",
+              "line": 60,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_019 - BP Category Delete: Category has products",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-e9153185d98766f0629b",
+              "file": "m4-bp.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_020 - BP Category Delete: Empty category successfully deleted",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-2f5a5f16460698891b5a",
+              "file": "m4-bp.spec.ts",
+              "line": 70,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_021 - BP Dashboard: Admin access",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-77a9b9c8509012e62d12",
+              "file": "m4-bp.spec.ts",
+              "line": 76,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_022 - BP Dashboard: Customer access",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-67ea69c2ae485437e965",
+              "file": "m4-bp.spec.ts",
+              "line": 81,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_023 - BP Dashboard: Unauthenticated access",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-c28e31870a03fcd703db",
+              "file": "m4-bp.spec.ts",
+              "line": 86,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_024 - BP Register: Success path",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-654c750dcd02651d67e7",
+              "file": "m4-bp.spec.ts",
+              "line": 92,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_025 - BP Register: Duplicate email",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-84f85748efc65e0c70bc",
+              "file": "m4-bp.spec.ts",
+              "line": 105,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_026 - BP Register: Validation failed (empty body)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "1231f103e13dc258ad03-de6dd4b37ad945e85bed",
+              "file": "m4-bp.spec.ts",
+              "line": 118,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m4-bva.spec.ts",
+      "file": "m4-bva.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 4: BVA for User Registration (M4_TC_001 - M4_TC_008)",
+          "file": "m4-bva.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M4_TC_001 - BVA firstName Min-1 (length 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "3c92f9ac7a04ca1ddb97-ef09bc065beb18dc32d8",
+              "file": "m4-bva.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_002 - BVA firstName Min (length 1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "3c92f9ac7a04ca1ddb97-8772a7f065b2e5487438",
+              "file": "m4-bva.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_003 - BVA firstName Max (length 100)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "3c92f9ac7a04ca1ddb97-80b0bac31364000cec33",
+              "file": "m4-bva.spec.ts",
+              "line": 38,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_004 - BVA firstName Max+1 (length 101)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "3c92f9ac7a04ca1ddb97-8af96fda59595d783609",
+              "file": "m4-bva.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_005 - BVA lastName Min-1 (length 0)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "3c92f9ac7a04ca1ddb97-92393f6ab018dd538574",
+              "file": "m4-bva.spec.ts",
+              "line": 64,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_006 - BVA lastName Min (length 1)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "3c92f9ac7a04ca1ddb97-84c3a7c088bb4199115e",
+              "file": "m4-bva.spec.ts",
+              "line": 77,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_007 - BVA lastName Max (length 100)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "3c92f9ac7a04ca1ddb97-1c912c3c309f19ef4452",
+              "file": "m4-bva.spec.ts",
+              "line": 90,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_008 - BVA lastName Max+1 (length 101)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "3c92f9ac7a04ca1ddb97-11d58e0f03161efbe9dd",
+              "file": "m4-bva.spec.ts",
+              "line": 103,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m4-dt.spec.ts",
+      "file": "m4-dt.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 4: DT for Category Update (M4_TC_027 - M4_TC_030)",
+          "file": "m4-dt.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M4_TC_027 - DT: parentId omitted (updates non-parent fields)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b79055924c9e93e3e76c-c3339bde8d5be0953937",
+              "file": "m4-dt.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_028 - DT: parentId equals own category ID (self-referencing)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b79055924c9e93e3e76c-a21a9d36e2b8e1bb732d",
+              "file": "m4-dt.spec.ts",
+              "line": 38,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_029 - DT: parentId does not exist",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b79055924c9e93e3e76c-b0850df26c614b5d9db3",
+              "file": "m4-dt.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_030 - DT: parentId is valid and exists",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b79055924c9e93e3e76c-c251b313be201611c183",
+              "file": "m4-dt.spec.ts",
+              "line": 56,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "m4-ect.spec.ts",
+      "file": "m4-ect.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Member 4: ECT for User Registration (M4_TC_009 - M4_TC_016)",
+          "file": "m4-ect.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "M4_TC_009 - ECT Valid everything (Email & Password all rules met)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "28b9de0a31e68cf90334-12bbba98a3e3931bcc39",
+              "file": "m4-ect.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_010 - ECT Email invalid (missing @)",
+              "ok": true,
+              "tags": [
+                ")"
+              ],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "28b9de0a31e68cf90334-e324330704f407006f0c",
+              "file": "m4-ect.spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_011 - ECT Email empty/missing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "28b9de0a31e68cf90334-f55d6d3922081ce80534",
+              "file": "m4-ect.spec.ts",
+              "line": 37,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_012 - ECT Password missing uppercase",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "28b9de0a31e68cf90334-a8c9b7cb16f16e07edbb",
+              "file": "m4-ect.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_013 - ECT Password missing lowercase",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "28b9de0a31e68cf90334-24f206a61d07238d3d9d",
+              "file": "m4-ect.spec.ts",
+              "line": 63,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_014 - ECT Password missing number",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "28b9de0a31e68cf90334-1b1a037237a1ac4fb2cb",
+              "file": "m4-ect.spec.ts",
+              "line": 76,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_015 - ECT Password missing special character",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "28b9de0a31e68cf90334-0cbe5f7e17fceed12315",
+              "file": "m4-ect.spec.ts",
+              "line": 89,
+              "column": 7
+            },
+            {
+              "title": "M4_TC_016 - ECT Password less than 8 characters",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "28b9de0a31e68cf90334-c4e5f8de675e56108ca7",
+              "file": "m4-ect.spec.ts",
+              "line": 102,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-12T19:41:18.344Z",
+    "duration": 128.538,
+    "expected": 0,
+    "skipped": 30,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -13,11 +13,11 @@ import { getFullImageUrl } from '@/lib/utils'
 
 export default function CartPage() {
   const { user, isLoading: authLoading } = useAuth()
-  const { items, totalPrice, removeItem, isLoading } = useCart()
+  const { items, totalPrice, updateQuantity, removeItem, isLoading } = useCart()
   const router = useRouter()
 
   useEffect(() => {
-    if (!authLoading && !user) router.push('/login')
+    if (!authLoading && !user) router.push('/login?callbackUrl=/cart')
   }, [user, authLoading, router])
 
   if (authLoading || isLoading) return <div className="flex justify-center py-40"><LoadingSpinner size="lg" /></div>
@@ -52,9 +52,30 @@ export default function CartPage() {
                   <Link href={`/products/${item.product.slug}`} className="font-bold text-gray-900 text-lg line-clamp-1 hover:text-indigo-600 transition-colors">
                     {item.product.name}
                   </Link>
-                  <p className="text-sm font-medium text-gray-500 mt-1">
-                    Quantity: {item.quantity} × {formatPrice(item.unitPrice ?? item.product.price)}
-                  </p>
+                  <div className="flex items-center gap-3 mt-2">
+                    <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden bg-gray-50">
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        className="px-2.5 py-1 text-gray-600 hover:bg-gray-200 font-bold transition-colors"
+                        title="Decrease quantity"
+                      >
+                        −
+                      </button>
+                      <span className="px-3 py-1 text-sm font-bold text-gray-900 bg-white min-w-[2rem] text-center">
+                        {item.quantity}
+                      </span>
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        className="px-2.5 py-1 text-gray-600 hover:bg-gray-200 font-bold transition-colors"
+                        title="Increase quantity"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <span className="text-xs text-gray-500 font-medium">
+                      × {formatPrice(item.unitPrice ?? item.product.price)}
+                    </span>
+                  </div>
                 </div>
                 <div className="text-right flex flex-col items-end">
                   <p className="font-black text-xl text-gray-900">
