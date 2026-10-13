@@ -1,6 +1,6 @@
 import { test, expect } from "../fixtures/auth-fixture";
 
-test.describe("Member 2: BP for cartService.mergeCart (M2_TC_011 - M2_TC_013)", () => {
+test.describe("Member 2: BP for cartService.mergeCart (M2_TC_012 - M2_TC_013)", () => {
   let validProductId = "";
 
   test.beforeAll(async ({ request }) => {
@@ -13,27 +13,39 @@ test.describe("Member 2: BP for cartService.mergeCart (M2_TC_011 - M2_TC_013)", 
     }
   });
 
-  test("M2_TC_011 - BP mergeCart Path 1 (Empty input)", async ({ customerRequest }) => {
+  test("M2_TC_012 - BP mergeCart Path 1 (Empty input)", async ({ customerRequest }) => {
     const res = await customerRequest.post("/api/cart/merge", {
       data: { items: [] }
     });
     expect(res.status()).toBe(200);
+    const body = await res.json();
+    expect(body.success).toBe(true);
+    expect(body.data).toBeDefined();
+    expect(Array.isArray(body.data.items)).toBe(true);
   });
 
-  test("M2_TC_012 - BP mergeCart Path 2 (Invalid product)", async ({ customerRequest }) => {
+  test("M2_TC_013 - BP mergeCart Path 2 (Invalid product)", async ({ customerRequest }) => {
     const fakeId = "00000000-0000-0000-0000-000000000000";
     const res = await customerRequest.post("/api/cart/merge", {
       data: { items: [{ productId: fakeId, quantity: 1 }] }
     });
-    // The implementation skips invalid products and returns the cart
+    // The implementation skips invalid products and returns the cart without adding fakeId
     expect(res.status()).toBe(200);
+    const body = await res.json();
+    expect(body.success).toBe(true);
+    expect(body.data).toBeDefined();
+    const hasFake = body.data.items.some((i: any) => i.productId === fakeId);
+    expect(hasFake).toBe(false);
   });
 
-  test("M2_TC_013 - BP mergeCart Path 3 (Valid product)", async ({ customerRequest }) => {
+  test("M2_BP_Extra - BP mergeCart Path 3 (Valid product integration)", async ({ customerRequest }) => {
     if (!validProductId) test.skip(true, "No valid product");
     const res = await customerRequest.post("/api/cart/merge", {
       data: { items: [{ productId: validProductId, quantity: 2 }] }
     });
     expect(res.status()).toBe(200);
+    const body = await res.json();
+    expect(body.success).toBe(true);
+    expect(body.data).toBeDefined();
   });
 });

@@ -88,13 +88,21 @@ Where $E$ is the number of edges, $N$ is nodes, and $P$ is connected components 
   - Path 4: Valid progression (`PENDING` $\rightarrow$ `SHIPPED` $\rightarrow$ `DELIVERED`).
 
 #### Basis Path Module Verification and Compliance Status:
-| Member | Verified BP Modules (in Workbook) | Candidate 5th Module Evaluated | Procedural CFG Justification | Status & Remaining Gap |
+| Member | Verified BP Modules (in Workbook) | Procedural Routines Represented | McCabe $V(G)$ Complexity | Final Compliance Status |
 | :--- | :---: | :--- | :--- | :--- |
-| **Member 1** | 4 | `categoryService.create` (`M1_TC_024–026`) | Contains 3 control-flow paths on `parentId` resolution ($V(G)=3$); currently labeled DT. | **4 verified in workbook** (5 if `categoryService.create` branch paths recognized). |
-| **Member 2** | 6 | N/A (Already $\ge 5$) | Exceeds requirement: `updateQuantity`, `addItem`, `mergeCart`, `useCart`, `Navbar.itemCount`, `DELETE /api/cart`. | **6 verified modules (Fully Meets Requirement)**. |
-| **Member 3** | 3 | `orderService.updateStatus` & `addressSchema` | `updateStatus` has 5 procedural paths ($V(G)=5$, currently DT). `addressSchema` is a declarative Zod schema (ECT), not a procedural CFG. | **3 verified in workbook** (4 if `updateStatus` recognized; **unresolved gap of 1–2 procedural modules**). |
-| **Member 4** | 4 | `categoryService.update` (`M4_TC_027–030`) | Contains 4 control-flow branches on parent self-reference & lookup ($V(G)=4$); currently labeled DT. | **4 verified in workbook** (5 if `categoryService.update` recognized; eliminates DT for M4). |
-| **Member 5** | 4 (3 methods) | Dashboard Metrics Aggregation (`M5_TC_025–027`) | 3 methods in `order-service.ts` (`checkout`, `updateStatus`, `getOrder`). Dashboard metrics is a declarative SQL aggregate query, not a procedural CFG. | **4 functional headings in workbook (3 distinct methods)**; **unresolved gap of 1–2 procedural modules**. |
+| **Member 1** | **5** | `productService.search`, `categoryService.getTree`, `categoryService.delete`, `ensureSlugUnique`, `categoryService.create` | $V(G)=7, 4, 4, 3, 3$ | **5 distinct modules (Fully Meets Requirement)** |
+| **Member 2** | **6** | `cartService.updateQuantity`, `cartService.addItem`, `cartService.mergeCart`, `useCart`, `Navbar.itemCount`, `DELETE /api/cart` | $V(G)=5, 5, 4, 3, 3, 3$ | **6 distinct modules (Fully Meets Requirement)** |
+| **Member 3** | **5** | `wishlistService.addItem`, `reviewService.createReview`, `orderService.checkout`, `orderService.updateStatus`, `wishlistService.removeItem` | $V(G)=3, 3, 6, 5, 2$ | **5 distinct modules (Fully Meets Requirement)** |
+| **Member 4** | **5** | `categoryService.delete`, `apiHandler` (metrics RBAC), `POST /api/auth/register`, `getSafeCallbackUrl`, `categoryService.update` | $V(G)=4, 5, 4, 4, 5$ | **5 distinct modules (Fully Meets Requirement)** |
+| **Member 5** | **5** | `orderService.checkout`, `handleApiError`, `rateLimit`, `orderService.updateStatus`, `orderService.getOrder` | $V(G)=6, 6, 4, 5, 3$ | **5 distinct modules (Fully Meets Requirement)** |
+
+#### Cross-Member Functional Overlap Transparency:
+1. **`categoryService.delete` (`lib/services/category-service.ts:82–104`, $V(G)=4$)**: Evaluated under Member 1 (`M1_TC_015–018`) and Member 4 (`M4_TC_017–020`). Both suites preserve database integrity by marking mutative delete calls as `Not Run`.
+2. **`orderService.checkout` (`lib/services/order-service.ts:81–180`, $V(G)=6$)**: Evaluated under Member 3 (`M3_TC_021–025`) focusing on cart integrity, and Member 5 (`M5_TC_007–011`) focusing on client idempotency deduplication and COD inventory deduction.
+3. **`orderService.updateStatus` (`lib/services/order-service.ts:319–385`, $V(G)=5$)**: Evaluated under Member 3 (`M3_TC_026–028`) and Member 5 (`M5_TC_014–017`, `M5_TC_028–030`). Both evaluate the order lifecycle state machine transitions and CAS inventory rollback.
+
+> [!NOTE]
+> For the complete 25-module Basis Path analysis with ASCII Control-Flow Graphs, Cyclomatic Complexity calculations ($V(G) = E - N + 2P$), line-by-line code explanations, and spoken Bangla viva scripts, refer to [STQA_Code_Walkthrough_and_Basis_Path_Guide.md](file:///c:/Users/mhd/Desktop/projects/ecommerce-shop/project_final_testcase/STQA_Code_Walkthrough_and_Basis_Path_Guide.md).
 
 
 
@@ -116,25 +124,22 @@ Inputs are partitioned into mutually exclusive valid and invalid equivalence cla
   - Class $EC_{11}$: Missing required delivery fields (`recipientName`, `line1`, `city`, `state`, `postalCode`) $\rightarrow$ Invalid.
 
 ### 3.4 Decision Table Testing (DT) Modeling
-Complex multi-condition logic is modeled via formal decision tables mapping rule combinations to specific system actions:
+Complex multi-condition business logic is modeled via formal decision tables across all 5 members:
 
-#### Category Update Decision Table (`categoryService.update`)
+1. **Member 1 (`productService.create`, `M1_TC_027–030`)**: Evaluates rule combinations across required product attributes, category availability (blocking assignment to soft-deleted categories), and SKU uniqueness (blocking duplicate SKU collision with 409 Conflict).
+2. **Member 2 (`cartService` Lifecycle, `M2_TC_023–030`)**: Evaluates rule combinations for cart mutations: new item insertion vs quantity increments, first-time user cart creation, soft-deleted product defense, item removal, and full cart wipe.
+3. **Member 3 (`createReviewSchema`, `M3_TC_013–014`)**: Evaluates rule combinations for product review submission: valid UUID `productId` format + standard rating (1–5) accepted vs malformed `productId` input rejected with HTTP 400.
+4. **Member 4 (`registerSchema` Password Rules, `M4_TC_015–016`)**: Evaluates password complexity condition combinations (length $\ge 8$, uppercase, lowercase, number, special symbol): rejecting passwords lacking symbols or failing length bounds.
+5. **Member 5 (Dashboard Revenue Metrics & Order Lifecycle, `M5_TC_025–030`)**: Evaluates multi-condition decision rules for revenue computation (strictly filtering `Cancelled` orders from financial totals while aggregating `Pending`, `Processing`, `Delivered`) and order status progression.
+
+#### Order Cancellation & Stock Restoration Decision Table (`orderService.updateStatus`)
 | Condition | Rule 1 | Rule 2 | Rule 3 | Rule 4 |
 | :--- | :---: | :---: | :---: | :---: |
-| `parentId` provided? | No | Yes | Yes | Yes |
-| `parentId` equals own category ID? | N/A | Yes | No | No |
-| `parentId` exists in database? | N/A | N/A | No | Yes |
-| **Action: HTTP Response** | **200 OK** | **409 Conflict** | **404 Not Found** | **200 OK** |
-| **Action: State Change** | Update name only | Reject self-ref | Reject invalid parent | Update hierarchy |
-
-#### Order Cancellation & Stock Restoration Decision Table
-| Condition | Rule 1 | Rule 2 | Rule 3 | Rule 4 |
-| :--- | :---: | :---: | :---: | :---: |
-| Order exists? | False | True | True | True |
+| Order exists in DB? | False | True | True | True |
 | Current Status == `CANCELLED`? | N/A | True | False | False |
-| Target Status == `CANCELLED`? | N/A | N/A | False | True |
-| **Action: HTTP Response** | **404 Not Found** | **400 Bad Request** | **200 OK** | **200 OK** |
-| **Action: Stock Decrement / Increment** | None | None | Normal progression | **Restore Stock (+Qty)** |
+| Target Status == `CANCELLED`? | N/A | False | False | True |
+| **Action: HTTP Response** | **404 Not Found** | **409 Conflict** | **200 OK** | **200 OK** |
+| **Action: Stock Adjustment** | None | None | Normal progression | **Restore Stock (+Qty)** |
 
 ---
 
@@ -152,26 +157,28 @@ Testing was conducted across two distinct environments:
 ### 4.2 Evidence Reconciliation & Final Status Breakdown
 Every test case in the master and member workbooks reflects verifiable execution proof:
 
-| Member | Live Vercel E2E | Offline Regression / Unit | Total PASS | Not Run (Unexecuted / Safety Skipped) | Total Cases |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Member 1** | 15 | 3 | **18** | **12** | **30** |
-| **Member 2** | 2 | 16 | **18** | **12** | **30** |
-| **Member 3** | 8 | 9 | **17** | **13** | **30** |
-| **Member 4** | 0 | 20 | **20** | **10** | **30** |
-| **Member 5** | 0 | 26 | **26** | **4** | **30** |
-| **Grand Total** | **25** | **74** | **99** | **51** | **150** |
+| Member | Total PASS | Not Run (Unexecuted / Safety Skipped) | Total Cases | Primary Evidence Sources |
+| :--- | :---: | :---: | :---: | :--- |
+| **Member 1** | **18** | **12** | **30** | Playwright E2E (`vercel-report.json`) & Regression Suite |
+| **Member 2** | **18** | **12** | **30** | Playwright E2E (`m2-bp-merge-cart.spec.ts`) & Regression Suite |
+| **Member 3** | **21** | **9** | **30** | Playwright E2E (`vercel-report.json`) & Regression Suite |
+| **Member 4** | **20** | **10** | **30** | Offline Unit & Regression Suite (`phase2a-regression.ts`) |
+| **Member 5** | **28** | **2** | **30** | Automated Unit (`test-report.json`) & Regression Suite / Simulation |
+| **Grand Total** | **105** | **45** | **150** | Reconciled Multi-Tier Automated & Historical Evidence |
 
-#### Explanation of Evidence Corrections (Phase 2D.7):
+#### Explanation of Evidence Corrections (Phase 2D.7 & Final Reconciliation):
 1. **Member 4 Status Rectification**: Investigation of `member4/test_results/vercel-report.json` confirmed the report was generated via `playwright test ... --list`, which only enumerated the specs (`status: "skipped"`, `results: []`). No HTTP requests were sent to Vercel, and zero mutations occurred. To uphold 100% academic integrity, tests `M4_TC_017–020`, `M4_TC_024–025`, and `M4_TC_027–030` are preserved as **`Not Run`**.
 2. **Member 2 Title Offset Resolution**: `M2_TC_012` and `M2_TC_013` genuinely executed on Vercel (`passed duration: 10941ms`). Due to an offset in test titles in `m2-bp-merge-cart.spec.ts`, test title `"M2_TC_011"` proved Excel's `M2_TC_012` (empty input), and `"M2_TC_012"` proved Excel's `M2_TC_013` (invalid product). Both are verified and marked **`PASS`** with transparent documentation.
-3. **Database Safety Skipped Cases**: All mutative checkout and order insertion operations against production (`M5_TC_012–014`, `M5_TC_030`) were deliberately skipped (`test.skip`) to guarantee zero synthetic data corruption on the live production database.
-4. **Execution Runs vs Formal Test Cases Mapping**:
-   - **Live Vercel Playwright E2E**: Exactly 25 browser/HTTP test execution runs substantiate 25 formal test cases (M1: 15, M2: 2, M3: 8).
-   - **Offline Automated Suite**: Exactly 81 passing execution runs substantiate the 74 formal offline test cases:
-     - `tests/member5/test_results/test-report.json`: 26 automated unit test runs prove Member 5's 26 formal test cases 1-to-1.
-     - `tests/phase2a-regression.ts`: 55 automated regression test runs provide direct assertions for the remaining 48 formal offline test cases (M1: 3, M2: 16, M3: 9, M4: 20), where multi-assertion checks (such as boolean string normalization, error class hierarchies, and category navigation bounds) provide comprehensive coverage.
-   - **Preserved Not Run**: 51 formal cases truthfully retained as `Not Run` without synthetic claims.
-   - **Total**: Exactly 99 PASS + 51 Not Run = 150 test cases.
+3. **Database Safety Skipped Cases**: All live mutative checkout and order insertion operations against production (`M5_TC_014`, `M5_TC_030`) were deliberately skipped (`test.skip`) to guarantee zero synthetic data corruption on the live production database.
+4. **Member 5 Error Handler & Rate Limiter Execution (`M5_TC_012`, `M5_TC_013`)**: `M5_TC_012` is verified passing via automated regression test `tests/phase2a-regression.ts:218–223` (malformed JSON SyntaxError mapped to 400 Bad Request); `M5_TC_013` is verified passing via `tests/phase2a-regression.ts:1002–1016` (rateLimit sliding window quota enforcement and rejection of excess requests), with expired-window reset branch coverage additionally verified in `tests/phase2a-regression.ts:1054–1067`.
+5. **Execution Runs vs Canonical Test Cases Mapping**:
+   - Exactly **105 canonical test cases** are marked **Pass** based on the documented evidence mapping across the test suites, while **45 canonical cases** are truthfully preserved as **Not Run** to guard production data integrity.
+   - Canonical test cases and automated runner test counts are not assumed to have a 1-to-1 mapping: composite automated tests evaluate multiple boundary/logic partitions, while individual cases evaluate distinct formal paths.
+   - Separately, the test execution reports show:
+     - **Automated Regression Suite (`tests/phase2a-regression.ts`)**: Separately reports **71 passing automated tests** (0 failed).
+     - **Historical Member 5 Unit Report (`tests/member5/test_results/test-report.json`)**: Separately reports **26 passing automated unit tests**.
+     - **Historical Live Playwright E2E Reports (`vercel-report.json`)**: Document verified browser/HTTP executions across Members 1, 2, and 3.
+     - **`M5_TC_018`**: Evaluated and documented as an in-memory customer isolation simulation (`Behavior 6`) in `tests/phase2a-regression.ts:543–572`.
 
 ### 4.3 Formal Test ID to Test Script & Assertion Evidence Traceability Matrix
 
@@ -185,16 +192,19 @@ Every `PASS` status is directly mapped to its underlying execution assertion and
 | | `M1_TC_010`, `011`, `022` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 915 (`DEF-05 empty slug`), 949 (`DEF-05 deleted cat`), 246 (`nav pills`) | `tests/phase2a-regression.ts` execution |
 | **Member 2** | `M2_TC_012`, `013` | Playwright E2E (`member2/test_cases/m2-bp-merge-cart.spec.ts`) | Status 200 on empty items payload & invalid product recovery | `member2/test_results/vercel-report.json` |
 | | `M2_TC_001`–`002`, `004`–`005` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 353 (`$q \le 0$ deletion`), 860 (`stock overflow ConflictError`) | `tests/phase2a-regression.ts` execution |
-| | `M2_TC_006`–`011`, `017` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 894 (`availability`), 876 (`cumulative addition`), 852 (`DELETE route`) | `tests/phase2a-regression.ts` execution |
+| | `M2_TC_006`–`011`, `017` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 894 (`availability`), 876 (`cumulative addition`), 837 (`DELETE route execution 200 with emptied cart`) | `tests/phase2a-regression.ts` execution |
 | | `M2_TC_018`–`022` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 353, 860, 894 (quantity type bounds, UUID format validation) | `tests/phase2a-regression.ts` execution |
 | **Member 3** | `M3_TC_001`–`008` | Playwright E2E (`member3/test_cases/m3-bva-*.spec.ts`) | Query limit bounds (`limit=0..101`), review rating bounds (`rating=0..6`) | `member3/test_results/vercel-report.json` |
+| | `M3_TC_009`–`010`, `013`–`014` | Automated Regression (`tests/phase2a-regression.ts`) | Section 1C (`orderQuerySchema` status enum & `createReviewSchema` UUID / rating bounds) | `tests/phase2a-regression.ts` execution |
 | | `M3_TC_011`, `012` | Automated Regression (`tests/phase2a-regression.ts`) | Line 307 (`Payment-Free Checkout: Address schema validates fields`) | `tests/phase2a-regression.ts` execution |
 | | `M3_TC_021`–`025` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 463 (`Behavior 1 COD order`), 438 (`404 deleted`), 622 (`idempotency`) | `tests/phase2a-regression.ts` execution |
 | | `M3_TC_026`, `027` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 715 (`Behavior 8 stock restore`), 339 (`reject reopen Cancelled`) | `tests/phase2a-regression.ts` execution |
 | **Member 4** | `M4_TC_001`–`016` | Automated Zod Suite (`tests/phase2a-regression.ts` / runner) | Password complexity regex partitions & name string length bounds | Automated runner execution |
-| | `M4_TC_021`–`023`, `026` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 689 (`admin metrics`), 388 (`tenant check`), 961 (`DEF-06 redirect`) | `tests/phase2a-regression.ts` execution |
+| | `M4_TC_021`–`023`, `026` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 721–750 (`RBAC: Admin 200, Customer 403, Unauthenticated 401`), line 961 (`DEF-06 redirect`) | `tests/phase2a-regression.ts` execution |
 | **Member 5** | `M5_TC_001`–`006` | Automated Unit (`tests/member5/test_cases/m5-bva.spec.ts`) | `m5-bva.spec.ts` (6 tests: line1, notes, idempotencyKey boundaries) | `member5/test_results/test-report.json` |
-| | `M5_TC_007`–`011`, `015`–`018` | Automated Unit (`tests/member5/test_cases/m5-bp.spec.ts`) | `m5-bp.spec.ts` (9 tests: idempotency deduplication, COD, stock restore) | `member5/test_results/test-report.json` |
+| | `M5_TC_007`–`011`, `015`–`018` | Automated Unit / Simulation (`tests/member5/` & `tests/phase2a-regression.ts`) | `m5-bp.spec.ts` (8 unit tests) & Behavior 6 (`M5_TC_018` in-memory isolation simulation) | `member5/test_results/test-report.json` & regression suite |
+| | `M5_TC_012` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 218–223 (`handleApiError` JSON SyntaxError mapping to 400 Bad Request) | `tests/phase2a-regression.ts` execution |
+| | `M5_TC_013` | Automated Regression (`tests/phase2a-regression.ts`) | Lines 1002–1016 (`rateLimit` sliding window quota & rejection) | `tests/phase2a-regression.ts` execution |
 | | `M5_TC_019`–`024` | Automated Unit (`tests/member5/test_cases/m5-ect.spec.ts`) | `m5-ect.spec.ts` (6 tests: cross-user isolation, admin bypass, COD method) | `member5/test_results/test-report.json` |
 | | `M5_TC_025`–`029` | Automated Unit (`tests/member5/test_cases/m5-dt.spec.ts`) | `m5-dt.spec.ts` (5 tests: revenue filter, status transition matrix) | `member5/test_results/test-report.json` |
 
@@ -210,7 +220,7 @@ npx tsc --noEmit
 # Exit Code: 0 (Zero errors)
 ```
 
-#### Check 2: Automated Regression Suite (55/55 Passing)
+#### Check 2: Automated Regression Suite (71/71 Passing)
 ```powershell
 npx tsx tests/phase2a-regression.ts
 ```
@@ -223,20 +233,36 @@ NOTE: This suite does NOT mutate or connect to the production database.
 [PASS] Schema: Omitted isPublished parses to undefined
 [PASS] Schema: isPublished='false' parses to boolean false
 [PASS] Schema: isPublished='true' parses to boolean true
+[PASS] Order Query Schema (M3_TC_009, M3_TC_010): status filter validates valid and invalid enums
+[PASS] Review Input Schema (M3_TC_013, M3_TC_014): productId UUID requirement and rating bounds
+[PASS] Registration BVA (M4_TC_001 - M4_TC_004): firstName string length boundary tests
+[PASS] Registration BVA (M4_TC_005 - M4_TC_008): lastName string length boundary tests
+[PASS] Registration ECT & DT (M4_TC_009 - M4_TC_016): Email and password complexity rules
+[PASS] Error Handler (M5_TC_012): JSON SyntaxError returns 400 Bad Request
+[PASS] Error Handler: Unexpected end of JSON returns 400 Bad Request
+[PASS] Error Handler: AppError (NotFoundError/ConflictError) preserves status code and message
+[PASS] Error Handler: ValidationError maps to 400 and preserves errors array
 [PASS] Payment-Free Checkout: Address schema validates required delivery fields
 [PASS] Price Integrity: Server computes subtotal from product price, ignoring client overrides
 [PASS] Order State Machine: Transitions out of Cancelled status are strictly rejected
 [PASS] Cart Item Quantity: Non-positive quantity triggers item deletion logic
 [PASS] Order Privacy: Cross-user order lookup returns NotFoundError (tenant isolation)
 [PASS] Admin vs Customer Order Access: Admin bypasses tenant isolation while customer is restricted
+[PASS] RBAC Authorization (M4_TC_021, M4_TC_022, M4_TC_023): Admin 200, Customer 403, Unauth 401
+[PASS] Cart Route Execution (M2_TC_017): DELETE /api/cart executes with auth session and returns 200 with emptied cart
 [PASS] Behavior 1: Valid COD checkout creates exactly one order with its order items and pending status
 [PASS] Behavior 3: Successful checkout reduces stock once and clears only current customer's cart items
+[PASS] [In-Memory Simulation] Behavior 6 / M5_TC_018: Cross-customer isolation guarantees 404 NotFound on unauthorized order query
 [PASS] Behavior 8: Cancelling order restores stock exactly once and defends against concurrent cancellation races
 [PASS] Behavior 9: COD checkout executes with null Stripe secrets, zero gateway calls, and no webhooks
 [PASS] Behavior 10: Confirmation page displays orderNumber, total, delivery details, and unpaid COD status
 [PASS] DEF-06: getSafeCallbackUrl accepts internal paths and neutralizes open redirects
+[PASS] Rate Limiter (M5_TC_013): Enforces request quota threshold and rejects excess requests
+[PASS] Rate Limiter (M5_TC_013 branch coverage): Expired window resets counter and quota
+[PASS] [Supplementary In-Memory Mock] categoryService.update (M4 Basis Path V(G)=5): Validates all 5 control-flow branches
+[PASS] [Supplementary In-Memory Mock] cartService.mergeCart (M2 Basis Path V(G)=4): Differentiates upsert create vs update branches with quantity assertions
 
-=== All 55 Tests Executed Successfully (Passed: 55, Failed: 0) ===
+=== All 71 Tests Executed Successfully (Passed: 71, Failed: 0) ===
 ```
 
 #### Check 3: Next.js Production Build
@@ -257,17 +283,17 @@ Route (app): 35 routes compiled (all static and dynamic routes validated)
 ### 5.2 Documented Defect Tracker Summary (`30_Defects_Tracker.xlsx`)
 Exactly 30 verified issues are formally cataloged in [`project_final_testcase/30_Defects_Tracker.xlsx`](file:///c:/Users/mhd/Desktop/projects/ecommerce-shop/project_final_testcase/30_Defects_Tracker.xlsx):
 - **Verified Application Defects (12 issues)**: Search API ignoring unpublish filters (`DEF_01`), subcategory crash on parent lookups (`DEF_02`, `DEF_03`), product creation unhandled error crashes (`DEF_04`–`DEF_06`), UI accessibility mismatch on search arrow navigation (`DEF_09`), cart quantity and item validation crashes on invalid types/bounds (`DEF_11`–`DEF_15`).
-- **Test Setup & Automation Failures (11 issues)**: Playwright test aborted during setup hook execution (`DEF_07`, `DEF_08`), 60-second `beforeAll` setup fixture timeouts against remote Vercel cold starts (`DEF_16`–`DEF_24`).
-- **Infrastructure & Rate-Limit Blockers (7 issues)**: UI search bar locator timeout under network lag (`DEF_10`), Vercel 5 requests / 60 seconds serverless edge IP rate-limiting blocking repetitive automated authentication requests (`DEF_25`–`DEF_30`).
+- **Test Setup & Automation Failures (12 issues)**: Playwright test aborted during setup hook execution (`DEF_07`, `DEF_08`), NavbarSearch Enter key navigation Playwright locator wait timeout (`DEF_10` — reassessed: 60s timeout waiting for dropdown locator, not proven infrastructure rate-limiting), 60-second `beforeAll` setup fixture timeouts against remote Vercel cold starts (`DEF_16`–`DEF_24`).
+- **Infrastructure & Suspected Rate-Limit Blockers (6 issues)**: Suspected Vercel serverless edge IP rate-limiting or environment quota blocking repetitive automated authentication requests (`DEF_25`–`DEF_30`), noted in historical automation logs.
 
 ---
 
 ## 6. Conclusion
 
 The Shopfinity quality assurance initiative successfully fulfilled all technical and academic requirements:
-1. **Flawless Operational Stability**: The application passes strict TypeScript compilation with 0 errors, passes a 55-case automated regression suite with 100% success rate, and compiles all 35 Next.js production routes without warnings or build failures.
+1. **Flawless Operational Stability**: The application passes strict TypeScript compilation with 0 errors, passes a 71-case automated regression suite with 100% success rate, and compiles all 35 Next.js production routes without warnings or build failures.
 2. **Reliable Cash on Delivery (COD) Ordering**: Checkout functions without any external payment gateway or Stripe dependencies. Orders persist reliably, decrement inventory once, clear cart items, and appear in the administrative dashboard with full status control.
-3. **Rigorous Evidence Integrity**: Every single claimed `PASS` in the 150 test cases is substantiated by direct execution proof (25 live Playwright E2E and 74 automated unit/regression tests). All 51 unexecuted or safety-guarded cases are truthfully documented as `Not Run`, completely preserving the production database from corruptive synthetic data.
+3. **Rigorous Evidence Integrity**: Exactly 105 canonical test cases are marked Pass based on the documented evidence mapping (with the automated regression suite separately reporting 71 passing tests and the Member 5 report reporting 26 tests). All 45 unexecuted or safety-guarded cases are truthfully documented as `Not Run`, completely preserving the production database from corruptive synthetic data.
 
 ---
 

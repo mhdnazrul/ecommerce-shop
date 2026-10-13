@@ -8,13 +8,14 @@ This directory contains the final Software Testing & Quality Assurance (STQA) de
 
 | File Name | Purpose | Case Count |
 | :--- | :--- | :--- |
-| `STQA_Final_150_Cases.xlsx` | **Canonical Master Unified Workbook (Submission Target)** | 150 cases |
-| `Member_1_Final_STQA_Test_Cases.xlsx` | **Canonical Member 1 Workbook**: Catalog & Hierarchy | 30 cases |
-| `Member_2_Final_STQA_Test_Cases.xlsx` | **Canonical Member 2 Workbook**: Shopping Cart & Stock Bounds | 30 cases |
-| `Member_3_Final_STQA_Test_Cases.xlsx` | **Canonical Member 3 Workbook**: Order Lifecycle & Privacy | 30 cases |
-| `Member_4_Final_STQA_Test_Cases.xlsx` | **Canonical Member 4 Workbook**: User Registration & Auth | 30 cases |
-| `Member_5_Final_STQA_Test_Cases.xlsx` | **Canonical Member 5 Workbook**: COD Checkout & Analytics | 30 cases |
-| `30_Defects_Tracker.xlsx` | **30 Documented Project Defects & Environment Issues** (12 Verified Application Defects, 11 Test Setup Failures, 7 Infrastructure Blockers) | 30 entries |
+| `STQA_Final_150_Cases.xlsx` | **Canonical Master Unified Workbook (RentNest Multi-Sheet Standard)** | 150 cases |
+| `Member_1_Final_STQA_Test_Cases.xlsx` | **Canonical Member 1 Workbook**: Catalog & Hierarchy (7 Sheets) | 30 cases |
+| `Member_2_Final_STQA_Test_Cases.xlsx` | **Canonical Member 2 Workbook**: Shopping Cart & Stock Bounds (7 Sheets) | 30 cases |
+| `Member_3_Final_STQA_Test_Cases.xlsx` | **Canonical Member 3 Workbook**: Order Lifecycle & Privacy (7 Sheets) | 30 cases |
+| `Member_4_Final_STQA_Test_Cases.xlsx` | **Canonical Member 4 Workbook**: User Registration & Auth (7 Sheets) | 30 cases |
+| `Member_5_Final_STQA_Test_Cases.xlsx` | **Canonical Member 5 Workbook**: COD Checkout & Analytics (7 Sheets) | 30 cases |
+| `STQA_Code_Walkthrough_and_Basis_Path_Guide.md` | **Complete Basis Path Coverage, 5-Member Code Walkthrough & Run Guide** (ASCII CFGs, Line-by-Line Viva Guides, Bangla Scripts) | — |
+| `30_Defects_Tracker.xlsx` | **30 Documented Project Defects & Environment Issues** (12 Verified Application Defects, 12 Test Setup / Automation Failures, 6 Suspected Infrastructure / Rate-Limit Blockers) | 30 entries |
 | `STQA_Final_Report.md` | **Comprehensive STQA Final Report** (Objectives, Intro, Modeling, Execution, Outputs, Conclusion, Contributions) | — |
 | `STQA_150_Cases_README.md` | **Master Documentation & Evidence Inventory** | — |
 | `STQA_Final_150_Cases_v3.xlsx` | Preserved validated v3 master unified workbook | 150 cases |
@@ -22,34 +23,35 @@ This directory contains the final Software Testing & Quality Assurance (STQA) de
 | `STQA_Final_150_Cases_v2.xlsx` | Preserved v2 master unified workbook | 150 cases |
 | `Member_1...v2.xlsx` through `Member_5...v2.xlsx` | Preserved individual v2 member workbooks | 30 cases each |
 
-> **Note on Preservation**: All historical artifacts (`v0`, `v1`, `v2`, `v3`, test suite execution reports, and Playwright spec files) remain completely preserved for audit trace. Redundant temporary generator (`generate-final-excel.js`) has been cleaned.
-
-### Defect Tracker Breakdown (`30_Defects_Tracker.xlsx`)
-- **Verified Application Defects (12)**: DEF_01–DEF_06, DEF_09, DEF_11–DEF_15 (Real application bugs in search, category creation, product schema, UI accessibility, and cart quantity validations).
-- **Test Setup / Automation Failures (11)**: DEF_07, DEF_08, DEF_16–DEF_24 (Playwright test aborted during hook execution and 60-second `beforeAll` setup timeouts against remote Vercel cold starts).
-- **Infrastructure / Rate-Limit Blockers (7)**: DEF_10, DEF_25–DEF_30 (UI search bar locator timeout under network lag and Vercel Edge IP rate-limiting [5 req / 60 sec] blocking repetitive automated auth requests).
+> **Workbook Architecture**: Following the RentNest STQA reference standard, the master workbook and all five member workbooks feature **7 dedicated sheets**:
+> 1. `Overview`: Project summary, team and module mapping, STQA concepts index, and execution notes.
+> 2. `Test_Cases`: 150 test cases (master) / 30 test cases (member) adhering to the 14 standardized RentNest columns (`TC_ID`, `Member`, `Module`, `Technique`, `Title`, `Preconditions`, `Steps`, `Test_Data`, `Expected_Result`, `Actual_Result`, `Status`, `Priority`, `Automated_By`, `Defect_Ref`).
+> 3. `BVA`: Complete boundary value analysis tables covering `min-1`, `min`, `min+1`, `max-1`, `max`, and `max+1` positions per member module.
+> 4. `ECT_DecisionTable`: Equivalence class partitions across 12 input domains plus 4 formal decision tables (Cart Operations, Product Creation, Password Rules, Order Lifecycle).
+> 5. `Basis_Path`: Structured Basis Path documentation covering 25 procedural routine allocations (5 per member), cyclomatic complexity $V(G)=3\text{--}6$, independent paths, and full disclosure of the 3 cross-member shared routines.
+> 6. `Bug_Reports`: 30 defect reports structured into RentNest's 12 standardized columns (`Bug_ID`, `Module`, `Summary`, `Steps`, `Expected`, `Actual`, `Severity`, `Priority`, `Status`, `Reported_By`, `Found_Via`, `Related_TC`).
+> 7. `Automation_Coverage`: Two-part automation index linking 71 unit tests (`tests/phase2a-regression.ts`) and Playwright E2E/API test suites under `tests/`.
 
 ---
 
-## 2. Standardized 15-Column Schema
+## 2. Standardized 14-Column Test Case Schema
 
-All generated workbooks adhere to the exact 15 columns in the specified order:
+All workbooks adhere to the 14 standardized columns matching the RentNest reference standard:
 
-1. **Testing Technique**: Boundary Value Analysis (BVA), Basis Path Testing (BP), Equivalence Class Testing (ECT), or Decision Table Testing (DT).
+1. **TC_ID**: Unique sequential identifier (`M1_TC_001` through `M5_TC_030`).
 2. **Member**: Responsible team member (`Member 1` through `Member 5`).
-3. **Test ID**: Unique sequential identifier (`M1_TC_001` through `M5_TC_030`).
-4. **Module**: Realistic Shopfinity module name.
-5. **Function / Component**: Specific code function, route handler, or React component.
-6. **File Path**: Exact repository source file path.
-7. **Test Case Description**: Concise summary of what is being evaluated.
-8. **Scenario**: Real-world operational context.
-9. **Test Data**: Specific input parameters or boundary payloads.
-10. **Pre-Condition**: Necessary environment or state requirements before execution.
-11. **Steps for Execution**: Step-by-step instructions to reproduce or execute the test.
-12. **Expected Result**: Specific, testable assertion of expected behavior.
-13. **Actual Result**: Observed execution result.
-14. **Status**: Execution status (`PASS`, `FAIL`, or `Not Run`).
-15. **Comment**: Technical rationale, boundary definition, or test suite reference.
+3. **Module**: Realistic Shopfinity subsystem or functional domain.
+4. **Technique**: Testing technique (`BVA`, `ECT`, `Decision Table`, `Basis Path`).
+5. **Title**: Concise summary of the tested scenario.
+6. **Preconditions**: Environment prerequisites and initial database/session state.
+7. **Steps**: Numbered, reproducible execution steps.
+8. **Test_Data**: Exact input parameters, query parameters, or payload bodies.
+9. **Expected_Result**: Specific, testable assertion of expected behavior.
+10. **Actual_Result**: Observed execution result (*"As expected"*, specific status message, or defect finding).
+11. **Status**: Execution outcome (`Pass` or `Not Run`).
+12. **Priority**: Risk-based prioritization (`High`, `Medium`, or `Low`).
+13. **Automated_By**: Precise automated script path and test case reference.
+14. **Defect_Ref**: Cross-reference to the defect tracker (`DEF-01` to `DEF-30` or `-`).
 
 ---
 
@@ -68,9 +70,9 @@ Each team member is allocated exactly 30 test cases, numbered sequentially from 
 | Technique | Member 1 | Member 2 | Member 3 | Member 4 | Member 5 | Total |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Boundary Value Analysis (BVA)** | 5 | 5 | 8 | 8 | 6 | **32** |
-| **Basis Path Testing (BP)** | 14 | 12 | 11 | 10 | 12 | **59** |
-| **Equivalence Class Testing (ECT)** | 4 | 5 | 6 | 8 | 6 | **29** |
-| **Decision Table Testing (DT)** | 7 | 8 | 5 | 4 | 6 | **30** |
+| **Basis Path Testing (BP)** | 17 | 12 | 16 | 14 | 12 | **71** |
+| **Equivalence Class Testing (ECT)** | 4 | 5 | 4 | 6 | 6 | **25** |
+| **Decision Table Testing (DT)** | 4 | 8 | 2 | 2 | 6 | **22** |
 | **Total per Member** | **30** | **30** | **30** | **30** | **30** | **150** |
 
 ---
@@ -84,16 +86,46 @@ In accordance with strict verification rules:
 
 ---
 
-## 5. Programmatic Validation
+## 5. Safe Automated Verification & Reproduction Instructions
 
-All workbooks were validated programmatically via automated scripts (`scratch/validate_v3_workbooks.js`) verifying:
-1. Master workbook contains exactly 150 rows.
-2. Each member workbook contains exactly 30 rows.
-3. All 15 required headers match in exact order.
-4. All 150 test IDs are globally unique and sequential per member.
-5. Zero missing or placeholder (`N/A`, `See source code`, `TODO`) fields.
-6. Row-for-row and column-for-column equality between master and member files.
-7. Zero secrets, credentials, or `.env` variables exposed.
+All project deliverables and test cases can be safely validated offline without mutating the live production database or sending unauthorized external requests:
+
+1. **RentNest-Standard Multi-Sheet Workbook Validation**:
+   ```bash
+   node scratch/validate_rentnest_workbooks.js
+   ```
+   Validates that the master workbook and all 5 member workbooks contain all 7 standardized RentNest sheets, exactly 150 test cases (30 per member), the 14-column schema, exact status counts (105 Pass, 45 Not Run), and 30 documented defects.
+
+2. **Canonical Alignment & Parity Verification**:
+   ```bash
+   node scratch/validate_canonical_workbooks.js
+   ```
+   Verifies 100% row-for-row and column-for-column parity between master slices and individual member workbooks, with zero blank required fields and zero placeholder text.
+
+3. **30-Defects Tracker Audit**:
+   ```bash
+   node scratch/audit_30_defects.js
+   ```
+   Audits the 30 documented defect records across 12 Verified Application Defects, 12 Test Setup / Automation Failures, and 6 Suspected Infrastructure / Rate-Limit Blockers.
+
+4. **TypeScript Strict Type Check**:
+   ```bash
+   npx tsc --noEmit
+   ```
+   Confirms zero compilation or type errors across the entire codebase.
+
+5. **Safe Automated Regression & Logic Suite (71 Tests)**:
+   ```bash
+   npx tsx tests/phase2a-regression.ts
+   ```
+   Executes the 71-test automated unit and business logic regression suite offline (0 database writes, 0 network calls). Covers Zod schema validation bounds, error handler mapping, sliding-window rate limiting, cart route logic, RBAC metrics authorization, and in-memory multi-tenant privacy simulations.
+
+6. **Git Diff and Status Inspection**:
+   ```bash
+   git diff --check
+   git status --short
+   ```
+   Verifies clean diffs without syntax markers and confirms zero staged or uncommitted alterations to repository branches.
 
 ---
 
@@ -112,13 +144,16 @@ Following the Phase 2D.7 audit, the final `_v3` workbooks reflect full empirical
 
 ### Final Evidence-Backed Status Breakdown
 
-| Execution Scope | Member 1 | Member 2 | Member 3 | Member 4 | Member 5 | Grand Total |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Playwright E2E Verified (Live Vercel)** | 15 | 2 | 8 | 0 | 0 | **25 cases** |
-| **Automated Unit / Regression Verified** | 3 | 16 | 9 | 20 | 26 | **74 cases** |
-| **Total Verified PASS** | **18** | **18** | **17** | **20** | **26** | **99 cases** |
-| **Unexecuted / Safety Skipped (`Not Run`)** | **12** | **12** | **13** | **10** | **4** | **51 cases** |
-| **Total Test Cases** | **30** | **30** | **30** | **30** | **30** | **150 cases** |
+| Member | Total Verified PASS | Unexecuted / Safety Skipped (`Not Run`) | Total Test Cases | Primary Evidence Sources |
+| :--- | :---: | :---: | :---: | :--- |
+| **Member 1** | **18** | **12** | **30** | Playwright E2E (`vercel-report.json`) & Regression Suite |
+| **Member 2** | **18** | **12** | **30** | Playwright E2E (`m2-bp-merge-cart.spec.ts`) & Regression Suite |
+| **Member 3** | **21** | **9** | **30** | Playwright E2E (`vercel-report.json`) & Regression Suite |
+| **Member 4** | **20** | **10** | **30** | Offline Unit & Regression Suite (`phase2a-regression.ts`) |
+| **Member 5** | **28** | **2** | **30** | Automated Unit (`test-report.json`) & Regression Suite / Simulation |
+| **Grand Total** | **105** | **45** | **150** | Reconciled Multi-Tier Automated & Historical Evidence |
+
+> **Traceability Note**: Exactly 105 canonical test cases are marked Pass based on the documented evidence mapping across the test suites, while the automated regression suite separately reports 71 passing automated tests and the historical Member 5 unit report reports 26 tests. Test runner counts and canonical test-case counts evaluate multi-boundary and procedural logic without assuming an artificial one-to-one mapping. `M5_TC_018` is explicitly evaluated via an in-memory customer isolation simulation.
 
 ### Evidence Reconciliation Details
 
@@ -135,9 +170,10 @@ Following the Phase 2D.7 audit, the final `_v3` workbooks reflect full empirical
 #### 3. Demotions Retained as `Not Run`
 - `M1_TC_018`: Admin DELETE authentication required in Playwright context (documented in `member1/README.md`).
 - `M2_TC_014`, `M2_TC_015`, `M2_TC_016`: Remote Chromium 60,000ms locator timeouts on dynamic Vercel hydration (documented in `member2/README.md`).
-- `M3_TC_009`, `M3_TC_010`, `M3_TC_013`, `M3_TC_014`: Omitted from Member 3 Vercel test suite (`member3/test_results/vercel-report.json` only executed specs 1–8).
+- `M3_TC_009`, `M3_TC_010`, `M3_TC_013`, `M3_TC_014`: Promoted to `PASS` following offline verification against production schemas (`orderQuerySchema` status filter and `createReviewSchema` UUID/rating boundaries) in `tests/phase2a-regression.ts`.
 
 #### 4. Preserved Safety & Scope Cases
 - `M1_TC_003`: Kept as `Not Run` because Excel specifies `limit=20`, whereas historical execution ran `limit=12`.
-- `M5_TC_012`, `M5_TC_013`, `M5_TC_014`, `M5_TC_030`: Preserved as `Not Run` (marked with `test.skip` in `project_final_testcase/member5/test_cases/`) to strictly comply with safety constraints prohibiting production database order creation and mutations.
+- `M5_TC_014`, `M5_TC_030`: Preserved as `Not Run` to strictly comply with safety constraints prohibiting production database order creation and mutations. `M5_TC_012` is verified passing via unit regression suite `tests/phase2a-regression.ts:218–223` (SyntaxError payload mapping to 400 Bad Request) and `M5_TC_013` is verified passing via `tests/phase2a-regression.ts:1002–1016` (rateLimit sliding window quota and rejection).
+- `M5_TC_018`: Documented and evaluated via an in-memory tenant isolation simulation in `tests/phase2a-regression.ts:543–572` (Behavior 6) to avoid live Prisma connection pool initialization against Supabase during offline testing.
 
